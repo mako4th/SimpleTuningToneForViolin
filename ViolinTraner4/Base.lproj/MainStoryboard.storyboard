@@ -326,6 +326,9 @@ E 3/2</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="HelpView" destination="PyQ-nR-uFf" id="Pjt-sa-lmV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9q-Fi-aAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
