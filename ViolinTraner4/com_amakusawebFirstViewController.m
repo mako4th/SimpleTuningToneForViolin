@@ -38,12 +38,15 @@ const com_amakusawebPlaySineWaves *vs;
     
     
     vs = [[com_amakusawebPlaySineWaves alloc] init];
-    vs.samplerate = 441000;
+    vs.samplerate = 44100;
     vs.bitRate = 8;
     vs.frequency = 0;
     vs.wavetype = 1; //1:sin 2:三角 3:のこ
     vs.teperAMP = 0;
     vs.dupflg = 0;
+    
+//    short TaperCounter = 0.15 * vs.samplerate;
+//    NSLog(@"%d",TaperCounter);
     [vs playSineWave];
     
 }
@@ -124,6 +127,7 @@ const com_amakusawebPlaySineWaves *vs;
     vs.frequency2 = frecA;
     vs.nowPlaying = 3;
     isplay = 1;
+    vs.flgTaperOn = 1;
 }
 
 -(void)ToneEwave{
@@ -249,6 +253,14 @@ const com_amakusawebPlaySineWaves *vs;
     NSLog(@"stop pressed");
     [self StopWave];
     
+}
+- (IBAction)taperOn:(id)sender {
+    vs.flgOFF = 0;
+    vs.TeperCount = 2205;
+    while (!vs.flgOFF) {
+        ;
+    }
+    [self StopWave];
 }
 - (IBAction)selectWavetypeSegmentedC:(id)sender {
     NSLog(@"%d",[sender selectedSegmentIndex]);

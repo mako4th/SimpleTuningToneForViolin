@@ -344,6 +344,7 @@
 				GCC_PREFIX_HEADER = "ViolinTraner4/TuningTone-Prefix.pch";
 				INFOPLIST_FILE = "ViolinTraner4/TuningTone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = TuningTone;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

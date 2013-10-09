@@ -25,15 +25,17 @@
 @property (nonatomic) Float64 frequency2;
 @property (nonatomic) int wavetype;
 @property (nonatomic) int nowPlaying;
-@property (nonatomic) int isTeper;
+@property (nonatomic) BOOL flgTaperOn;
 @property (nonatomic) float TeperCount;
+@property (nonatomic) float TaperOn;
+
 @property (nonatomic) float teperAMP;
 @property (nonatomic) Float64 lastFrec;
 @property (nonatomic) double VolumePhaseCounter;
 @property (nonatomic) Float64 oldfrequency;
 @property (nonatomic) Float64 newfrequency;
 @property (nonatomic) int dupflg;
-
+@property (nonatomic) BOOL flgOFF;
 
 static OSStatus renderer(void * inRef,
                          AudioUnitRenderActionFlags *ioActionFlags,

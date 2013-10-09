@@ -37,6 +37,7 @@
 
 - (IBAction)AfrecStepper:(UIStepper *)sender;
 - (IBAction)StopSound:(id)sender;
+- (IBAction)taperOn:(id)sender;
 
 - (void)ToneGwave;
 - (void)ToneDwave;

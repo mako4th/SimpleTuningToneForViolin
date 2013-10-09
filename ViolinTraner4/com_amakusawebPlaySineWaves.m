@@ -10,7 +10,7 @@
 
 @implementation com_amakusawebPlaySineWaves
 
-@synthesize phase,samplerate,bitRate,frequency,wavetype,nowPlaying,isTeper,TeperCount,teperAMP,lastFrec;
+@synthesize phase,samplerate,bitRate,frequency,wavetype,nowPlaying,TeperCount,teperAMP,lastFrec,flgOFF,flgTaperOn,TaperOn;
 
 -(void)playSineWave{
     AudioComponentDescription acd;
@@ -96,6 +96,25 @@ static OSStatus renderer(void *inRef,
                 wave = sin(sinprecalc);
                 wave2 = sin(2*M_PI*vsn.frequency2*vsn.phase/vsn.samplerate);
                 wave = (wave+wave2)/2;
+                if (vsn.TeperCount != 0) {
+                    vsn.teperAMP = vsn.TeperCount/2205;
+                    wave = wave * vsn.teperAMP;
+                    vsn.TeperCount--;
+                    if (vsn.TeperCount == 0) {
+                        vsn.flgOFF = 1;
+                        vsn.frequency = vsn.frequency2 = 0;
+                    }
+                }
+                if (vsn.flgTaperOn == 1) {
+                    vsn.teperAMP = vsn.TaperOn/2205;
+                    wave = wave * vsn.teperAMP;
+                    vsn.TaperOn++;
+                    if (vsn.TaperOn == 2205) {
+                        vsn.flgTaperOn = 0;
+                        vsn.teperAMP = 0;
+                        vsn.TaperOn = 0;
+                    }
+                }
                 break;
             case 2: //三角波
                 xdash1 = fmodf(vsn.phase, (vsn.samplerate/vsn.frequency));
