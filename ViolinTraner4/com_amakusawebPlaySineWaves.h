@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+#define TaperCountDefoultNum 2205.0
 
 @interface com_amakusawebPlaySineWaves : NSObject{
     AudioUnit au;
@@ -26,16 +27,17 @@
 @property (nonatomic) int wavetype;
 @property (nonatomic) int nowPlaying;
 @property (nonatomic) BOOL flgTaperOn;
-@property (nonatomic) float TeperCount;
+@property (nonatomic) int TaperCount;
 @property (nonatomic) float TaperOn;
-
-@property (nonatomic) float teperAMP;
+@property (nonatomic) float taperAMP;
 @property (nonatomic) Float64 lastFrec;
 @property (nonatomic) double VolumePhaseCounter;
 @property (nonatomic) Float64 oldfrequency;
 @property (nonatomic) Float64 newfrequency;
-@property (nonatomic) int dupflg;
 @property (nonatomic) BOOL flgOFF;
+@property (nonatomic) BOOL flgUpTaper;
+@property (nonatomic) BOOL flgDownTaper;
+@property (nonatomic) BOOL isplay;
 
 static OSStatus renderer(void * inRef,
                          AudioUnitRenderActionFlags *ioActionFlags,
@@ -47,4 +49,5 @@ static OSStatus renderer(void * inRef,
 - (void) playSineWave;
 - (void) stopSineWave;
 - (void) testSineWave;
+- (float) getAMP;
 @end

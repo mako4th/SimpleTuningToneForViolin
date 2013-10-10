@@ -10,7 +10,9 @@
 
 @implementation com_amakusawebPlaySineWaves
 
-@synthesize phase,samplerate,bitRate,frequency,wavetype,nowPlaying,TeperCount,teperAMP,lastFrec,flgOFF,flgTaperOn,TaperOn;
+@synthesize phase,samplerate,bitRate,frequency,wavetype,nowPlaying,taperAMP,lastFrec,flgOFF,flgTaperOn,TaperOn;
+
+com_amakusawebPlaySineWaves *vsn;
 
 -(void)playSineWave{
     AudioComponentDescription acd;
@@ -67,87 +69,98 @@ static OSStatus renderer(void *inRef,
                          UInt32 inNumberFrames,
                          AudioBufferList *ioData
                          ) {
-       float wave,wave2,xdash1,xdash2,cons1,cons1_1,cons1_2,cons2,cons2_1,cons2_2,sinprecalc;
+    float wave,wave2,xdash1,xdash2,cons1,cons1_1,cons1_2,cons2,cons2_1,cons2_2;
     
-
+    
     // 値を書き込むポインタ
     AudioUnitSampleType *outL = ioData->mBuffers[0].mData;
     AudioUnitSampleType *outR = ioData->mBuffers[1].mData;
-       
+    
     //サンプル値計算に使う変数のキャスト
-    com_amakusawebPlaySineWaves* vsn = (__bridge com_amakusawebPlaySineWaves*)inRef;
-    
-    cons1 = vsn.samplerate/vsn.frequency; //一周期当りのビット数
-    cons1_1 = cons1/2;
-    cons1_2 = 4*vsn.frequency/vsn.samplerate;
-    
-    cons2 = vsn.samplerate/vsn.frequency2;
-    cons2_1 = cons2/2;
-    cons2_2 = 4*vsn.frequency2/vsn.samplerate;
-    
-    
+    vsn = (__bridge com_amakusawebPlaySineWaves*)inRef;
+
     for (int i = 0; i < inNumberFrames; i++) {
         
-        //量子化サンプルの計算
-        //スイッチ
+        //量子化サンプルの計算 波形毎
         switch (vsn.wavetype) {
             case 1: //sin波
-                sinprecalc =2*M_PI*vsn.frequency*vsn.phase/vsn.samplerate;
-                wave = sin(sinprecalc);
-                wave2 = sin(2*M_PI*vsn.frequency2*vsn.phase/vsn.samplerate);
-                wave = (wave+wave2)/2;
-                if (vsn.TeperCount != 0) {
-                    vsn.teperAMP = vsn.TeperCount/2205;
-                    wave = wave * vsn.teperAMP;
-                    vsn.TeperCount--;
-                    if (vsn.TeperCount == 0) {
-                        vsn.flgOFF = 1;
-                        vsn.frequency = vsn.frequency2 = 0;
-                    }
-                }
-                if (vsn.flgTaperOn == 1) {
-                    vsn.teperAMP = vsn.TaperOn/2205;
-                    wave = wave * vsn.teperAMP;
-                    vsn.TaperOn++;
-                    if (vsn.TaperOn == 2205) {
-                        vsn.flgTaperOn = 0;
-                        vsn.teperAMP = 0;
-                        vsn.TaperOn = 0;
-                    }
-                }
+                wave = sin(2.*M_PI*vsn.frequency*vsn.phase/vsn.samplerate);
+                wave2 = sin(2.*M_PI*vsn.frequency2*vsn.phase/vsn.samplerate);
+                wave = (wave+wave2)/2.;
+                wave = wave * vsn.getAMP;
                 break;
             case 2: //三角波
-                xdash1 = fmodf(vsn.phase, (vsn.samplerate/vsn.frequency));
-                xdash2 = fmodf(vsn.phase, (vsn.samplerate/vsn.frequency2));
-                wave = (xdash1 < cons1_1 ? cons1_2*xdash1-1 : (-cons1_2)*xdash1+3);
-                wave2 = (xdash2 < cons2_1 ? cons2_2*xdash2-1 : (-cons2_2)*xdash2+3);
-                wave = (wave+wave2)/2;
+                cons1 = vsn.samplerate/vsn.frequency;
+                cons1_1 = cons1/2.;
+                cons1_2 = 4. * vsn.getAMP * vsn.frequency/vsn.samplerate;
+                
+                cons2 = vsn.samplerate/vsn.frequency2;
+                cons2_1 = cons2/2.;
+                cons2_2 = 4. * vsn.getAMP * vsn.frequency2/vsn.samplerate;
+                
+                xdash1 = fmodf(vsn.phase, cons1);
+                xdash2 = fmodf(vsn.phase, cons2);
+                
+                wave = (xdash1 < cons1_1 ? cons1_2*xdash1-vsn.getAMP : (-cons1_2)*xdash1+3. * vsn.getAMP);
+                wave2 = (xdash2 < cons2_1 ? cons2_2*xdash2-vsn.getAMP : (-cons2_2)*xdash2+3. * vsn.getAMP);
+                wave = (wave+wave2)/2.;
+                wave = wave * vsn.getAMP;
                 break;
             case 3: //鋸波
-                wave = (2*vsn.frequency/vsn.samplerate)*fmodf(vsn.phase,(vsn.samplerate/vsn.frequency))-1;
-                wave2 = (2*vsn.frequency2/vsn.samplerate)*fmodf(vsn.phase,(vsn.samplerate/vsn.frequency2))-1;
-                wave = (wave+wave2)/2;
+                cons1 = vsn.samplerate/vsn.frequency;
+                cons1_2 = 2. * vsn.getAMP * vsn.frequency/vsn.samplerate;
+                cons2 = vsn.samplerate/vsn.frequency2;
+                cons2_2 = 2. * vsn.getAMP * vsn.frequency2/vsn.samplerate;
+                
+                wave = cons1_2 * fmodf(vsn.phase,cons1)-vsn.getAMP;
+                wave2 = cons2_2 * fmodf(vsn.phase,cons2)-vsn.getAMP;
+                wave = (wave+wave2)/2.;
+                wave = wave * vsn.getAMP;
                 break;
             default:
                 break;
         }
         
-
         AudioUnitSampleType sample = wave * (1 << kAudioUnitSampleFractionBits);
         
-       //バッファへ書き込み
+        //バッファへ書き込み
         *outL++ = sample;
         *outR++ = sample;
-       
-    
+        
+        
         //次のサンプリング周期を計算
-       vsn.phase++;
-
+        vsn.phase++;
+        
     }
-       
-
-    return noErr;
     
+    return noErr;
+}
+
+- (float) getAMP{
+    //テーパなし
+    vsn.taperAMP = (vsn.isplay == 1? 1:0);
+    
+    //鳴り始めのテーパ
+    if (vsn.flgUpTaper == 1) {
+        vsn.taperAMP = vsn.TaperCount/TaperCountDefoultNum;
+        vsn.TaperCount++;
+        if (vsn.TaperCount == TaperCountDefoultNum) {
+            vsn.flgUpTaper = 0;
+        }
+    }
+    
+    //鳴り終わりのテーパ
+    if (vsn.flgDownTaper == 1) {
+        vsn.taperAMP = vsn.TaperCount/TaperCountDefoultNum;
+        vsn.TaperCount--;
+        if (vsn.TaperCount < 0) {
+            vsn.phase = 0;
+            vsn.isplay = 0;
+            vsn.flgDownTaper = 0;
+        }
+    }
+    
+    return vsn.taperAMP;
 }
 
 - (void)stopSineWave{

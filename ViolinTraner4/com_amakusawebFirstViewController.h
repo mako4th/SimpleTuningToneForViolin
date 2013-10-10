@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *ToneD;
 @property (weak, nonatomic) IBOutlet UIButton *ToneG;
 @property (weak, nonatomic) IBOutlet UIButton *ToneE;
-@property (weak, nonatomic) IBOutlet UIButton *Stop;
 @property (weak, nonatomic) IBOutlet UIButton *ToneGD;
 @property (weak, nonatomic) IBOutlet UIButton *ToneDA;
 @property (weak, nonatomic) IBOutlet UIButton *ToneAE;
@@ -36,8 +35,6 @@
 - (IBAction)selectWavetypeSegmentedC:(id)sender;
 
 - (IBAction)AfrecStepper:(UIStepper *)sender;
-- (IBAction)StopSound:(id)sender;
-- (IBAction)taperOn:(id)sender;
 
 - (void)ToneGwave;
 - (void)ToneDwave;
@@ -47,7 +44,8 @@
 - (void)ToneDAwave;
 - (void)ToneAEwave;
 - (void)StopWave;
-
+- (void)DownTaper;
+- (void)ToneResume;
 - (void)ToneButtonChangeColler:(UIButton *)playing;
 
 
