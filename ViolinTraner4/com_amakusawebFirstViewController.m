@@ -256,7 +256,10 @@ const com_amakusawebPlaySineWaves *vs;
 - (IBAction)selectWavetypeSegmentedC:(id)sender {
     NSLog(@"%d",[sender selectedSegmentIndex]);
     Localwavetype = [sender selectedSegmentIndex] + 1;
-    [self ToneResume];
+    if (vs.isplay == 0) {
+        vs.wavetype = Localwavetype;
+    }else
+        [self ToneResume];
 }
 
 - (void)ToneButtonChangeColler:(UIButton *)playing
