@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *ToneAE;
 @property (weak, nonatomic) IBOutlet UILabel *AfrecHzLabel;
 @property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
-
+@property (nonatomic) BOOL bannerIsVisible;
 
 - (IBAction)ToneG:(id)sender;
 - (IBAction)ToneD:(id)sender;

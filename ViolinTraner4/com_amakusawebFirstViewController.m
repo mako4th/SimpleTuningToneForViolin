@@ -322,19 +322,24 @@ const com_amakusawebPlaySineWaves *vs;
 
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    CGRect bannerFrame = banner.frame;
-    bannerFrame.origin.y = self.view.frame.size.height - banner.frame.size.height;
-    [UIView animateWithDuration:1.0 animations:^{banner.frame = bannerFrame;}];
+    if (!self.bannerIsVisible) {
+        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
+        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        [UIView commitAnimations];
+        self.bannerIsVisible = YES;
+    }
     NSLog(@"広告在庫あり");
 }
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    CGRect bannerFrame = banner.frame;
-    bannerFrame.origin.y = self.view.frame.size.height;
-    [UIView animateWithDuration:1.0 animations:^{banner.frame = bannerFrame;}];
+    if (self.bannerIsVisible) {
+        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        [UIView commitAnimations];
+        self.bannerIsVisible = NO;
+    }
     NSLog(@"広告在庫なし");
-    
 }
 
 @end
