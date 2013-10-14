@@ -39,10 +39,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)close:(id)sender {
+- (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)back:(id)sender {
-        [self dismissViewControllerAnimated:YES completion:nil];
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if (navigationType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL: [request URL]];
+        return NO;
+    }
+    
+    return YES;
 }
+
 @end

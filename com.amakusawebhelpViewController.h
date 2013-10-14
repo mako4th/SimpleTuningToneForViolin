@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface com_amakusawebhelpViewController : UIViewController
-- (IBAction)close:(id)sender;
-@property (weak, nonatomic) IBOutlet UIWebView *HelpView;
+@interface com_amakusawebhelpViewController : UIViewController <UIWebViewDelegate>
 - (IBAction)back:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIWebView *HelpView;
 @end

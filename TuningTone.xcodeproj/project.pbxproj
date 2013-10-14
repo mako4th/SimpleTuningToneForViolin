@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1EDFB618091BDD00991FEB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EDFB518091BDD00991FEB /* index.html */; };
 		3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */; };
 		3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A414F0F17C47D38007E471A /* AudioToolbox.framework */; };
 		3A99A13817F539350084F607 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A99A13717F539350084F607 /* iAd.framework */; };
@@ -17,7 +18,6 @@
 		3ACFFD1817FBD8660013D122 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3ACFFD1117FBD8660013D122 /* 3.jpg */; };
 		3ACFFD1917FBD8660013D122 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3ACFFD1217FBD8660013D122 /* 4.jpg */; };
 		3ACFFD1A17FBD8660013D122 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3ACFFD1317FBD8660013D122 /* 5.jpg */; };
-		3AD5243417FD3375004A9054 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AD5243317FD3375004A9054 /* index.html */; };
 		3AEC119817C33FBE00EFAE28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119717C33FBE00EFAE28 /* UIKit.framework */; };
 		3AEC119A17C33FBE00EFAE28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119917C33FBE00EFAE28 /* Foundation.framework */; };
 		3AEC119C17C33FBE00EFAE28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119B17C33FBE00EFAE28 /* CoreGraphics.framework */; };
@@ -31,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A1EDFB518091BDD00991FEB /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3A414F0C17C47A13007E471A /* com_amakusawebPlaySineWaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_amakusawebPlaySineWaves.h; sourceTree = "<group>"; };
 		3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebPlaySineWaves.m; sourceTree = "<group>"; };
 		3A414F0F17C47D38007E471A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -44,7 +45,6 @@
 		3ACFFD1217FBD8660013D122 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		3ACFFD1317FBD8660013D122 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		3AD5243217FD2F64004A9054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		3AD5243317FD3375004A9054 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = ../../Documents/site/index.html; sourceTree = "<group>"; };
 		3AD8964A17F9810C001E17C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		3AD8964B17F9810C001E17C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AEC119417C33FBE00EFAE28 /* TuningTone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuningTone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 		3ACFFD1D17FBD8A30013D122 /* help */ = {
 			isa = PBXGroup;
 			children = (
-				3AD5243317FD3375004A9054 /* index.html */,
+				3A1EDFB518091BDD00991FEB /* index.html */,
 				3ACFFD0E17FBD8660013D122 /* images */,
 			);
 			name = help;
@@ -229,8 +229,8 @@
 				3ACFFD1917FBD8660013D122 /* 4.jpg in Resources */,
 				3ACFFD1617FBD8660013D122 /* 1.jpg in Resources */,
 				3AF3E94118090C4E0067B7E9 /* title.jpg in Resources */,
+				3A1EDFB618091BDD00991FEB /* index.html in Resources */,
 				3ACFFD1717FBD8660013D122 /* 2.jpg in Resources */,
-				3AD5243417FD3375004A9054 /* index.html in Resources */,
 				3ACFFD1817FBD8660013D122 /* 3.jpg in Resources */,
 				3ACF912F17F29AF500AD9200 /* Images.xcassets in Resources */,
 				3AEC11B117C33FBF00EFAE28 /* MainStoryboard.storyboard in Resources */,
