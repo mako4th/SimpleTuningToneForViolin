@@ -10,10 +10,10 @@
 #import <iAd/iAd.h>
 @interface com_amakusawebFirstViewController : UIViewController <ADBannerViewDelegate>
 
+@property (weak, nonatomic) IBOutlet ADBannerView *banner;
 @property (weak, nonatomic) IBOutlet UILabel *LabelFrec;
 @property (weak, nonatomic) IBOutlet UILabel *AfrecValue;
 @property (weak, nonatomic) IBOutlet UIStepper *AfrecStepper;
-@property (weak, nonatomic) IBOutlet UILabel *PitchLabel;
 @property (weak, nonatomic) IBOutlet UIButton *ToneA;
 @property (weak, nonatomic) IBOutlet UIButton *ToneD;
 @property (weak, nonatomic) IBOutlet UIButton *ToneG;
@@ -22,8 +22,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *ToneDA;
 @property (weak, nonatomic) IBOutlet UIButton *ToneAE;
 @property (weak, nonatomic) IBOutlet UILabel *AfrecHzLabel;
-@property (weak, nonatomic) IBOutlet ADBannerView *bannerView;
 @property (nonatomic) BOOL bannerIsVisible;
+@property (weak, nonatomic) IBOutlet UILabel *LabelNote;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectWavetype;
+@property (weak, nonatomic) IBOutlet UIButton *helpButton;
+@property (weak, nonatomic) IBOutlet UILabel *stepperFrecLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stepperFreclabelHz;
+
+
 
 - (IBAction)ToneG:(id)sender;
 - (IBAction)ToneD:(id)sender;
@@ -47,6 +53,8 @@
 - (void)DownTaper;
 - (void)ToneResume;
 - (void)ToneButtonChangeColler:(UIButton *)playing;
+- (void)resizeViewObjects;
+
 
 
 @end
