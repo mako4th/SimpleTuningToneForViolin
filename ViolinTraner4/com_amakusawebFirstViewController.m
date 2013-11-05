@@ -37,7 +37,9 @@ int bottomY = 0;
     NSLog(@"interfaceOrientation : %d",self.interfaceOrientation);
     [self resizeViewObjects];
 }
-
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [self resizeViewObjects];
+}
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
     [self resizeViewObjects];
@@ -177,16 +179,19 @@ int bottomY = 0;
     Leftx += _AfrecValue.frame.size.width + margin;
     _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
     Leftx += _stepperFreclabelHz.frame.size.width + margin;
-    _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);    _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+    _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
+    _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
 
     
 
     if (_bannerIsVisible) {
-//        [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
+        [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
         self.banner.frame = CGRectMake(0, bottomY - 50, areawidth, 50);
-//        [UIView commitAnimations];
+        self.banner.alpha = 1.0f;
+        [UIView commitAnimations];
     }else{
         self.banner.frame = CGRectMake(0, bottomY, areawidth, 50);
+        self.banner.alpha = 0.0f;
     }
     
     NSLog(@"orientation       = %d",self.interfaceOrientation);
@@ -199,11 +204,7 @@ int bottomY = 0;
     NSLog(@"appframe origin y = %f",appframesize.origin.y);
     NSLog(@"appframe width    = %f",appframesize.size.width);
     NSLog(@"appframe height   = %f",appframesize.size.height);
-    
-    
-//    NSLog(@"screenwidth = %d",screenwidth);
-//    NSLog(@"screenheight = %d",screenheight);
-//    NSLog(@"Yoffset = %d",YOffset);
+
 }
 - (void)didReceiveMemoryWarning
 {
@@ -471,7 +472,8 @@ int bottomY = 0;
 {
     if (!self.bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        banner.frame = CGRectMake(0, bottomY-50, 320, 50);//CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        banner.alpha = 1.0f;
         [UIView commitAnimations];
         self.bannerIsVisible = YES;
     }
@@ -482,7 +484,8 @@ int bottomY = 0;
 {
     if (self.bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        banner.frame = CGRectMake(0, bottomY, 320, 50);//CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        banner.alpha = 0.0f;
         [UIView commitAnimations];
         
         self.bannerIsVisible = NO;
