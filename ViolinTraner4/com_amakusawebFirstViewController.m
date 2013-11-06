@@ -23,14 +23,14 @@ const com_amakusawebPlaySineWaves *vs;
 int bottomY = 0;
 
 //画面回転有効
-- (BOOL)shouldAutorotate{
-    return YES;
-}
+//- (BOOL)shouldAutorotate{
+//    return YES;
+//}
 
 //全方向対応
-- (NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAll;
-}
+//- (NSUInteger)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 //画面回転開始時
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
