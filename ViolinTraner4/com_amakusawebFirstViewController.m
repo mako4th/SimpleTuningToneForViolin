@@ -21,6 +21,7 @@ int Localwavetype;
 const com_amakusawebPlaySineWaves *vs;
 
 int bottomY = 0;
+int areawidth = 0;
 
 //画面回転有効
 //- (BOOL)shouldAutorotate{
@@ -28,18 +29,19 @@ int bottomY = 0;
 //}
 
 //全方向対応
-//- (NSUInteger)supportedInterfaceOrientations{
-//    return UIInterfaceOrientationMaskAll;
-//}
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskAll;
+}
 
 //画面回転開始時
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     NSLog(@"interfaceOrientation : %d",self.interfaceOrientation);
     [self resizeViewObjects];
 }
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [self resizeViewObjects];
-}
+//-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+//    [self resizeViewObjects];
+//}
+
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
     [self resizeViewObjects];
@@ -50,7 +52,6 @@ int bottomY = 0;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self resizeViewObjects];
     
     //周波数選択ステッパー初期化
     self.AfrecStepper.minimumValue = 430;
@@ -80,10 +81,10 @@ int bottomY = 0;
 }
 
 -(void)resizeViewObjects{
-    int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,fifthrowTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areawidth,areaheight;
+    int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,LabelNoteTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areaheight;
     
     int margin = 4;
-    float hpersent = 3.5;
+    float hpersent = 4.0;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
     CGRect bounsframesize = [[UIScreen mainScreen] bounds];
@@ -106,7 +107,7 @@ int bottomY = 0;
         btnwidth = roundf((areawidth - margin*3)/2);
         btnheight = roundf((areaheight - self.banner.frame.size.height - margin)/hpersent);
         dupToneheight = btnheight / 2;
-        dupToneWidth = roundf((areawidth - margin*3)/3);
+        dupToneWidth = roundf((areawidth - margin*4)/3);
         
         firstrowTopY = areaoriginY + _LabelFrec.frame.size.height;
         secondrowTopY = firstrowTopY + btnheight + margin;
@@ -121,20 +122,18 @@ int bottomY = 0;
         areawidth = appframesize.size.height;
         areaheight = appframesize.size.width;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.width;
-        bottomY = appframesize.size.width;
+        bottomY = areaheight;
         
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
             areaoriginY = statusbarheight;
-            bottomY += statusbarheight*2;
+            bottomY += areaoriginY;
             NSLog(@"ios7以上");
         }else{
             NSLog(@"ios7以下");
-            bottomY += statusbarheight;
-            bottomY -= 5;
         }
         
         btnwidth = roundf((areawidth - margin*4)/3.0);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - margin)/hpersent);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - margin)/3.5);
         dupToneheight = ((btnheight * 2 + margin)-margin*2)/3;
         dupToneWidth = btnwidth;
 
@@ -164,9 +163,14 @@ int bottomY = 0;
     
 
 
-    _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);    fifthrowTopY = forthrowTopY + _LabelNote.frame.size.height;
-    _selectWavetype.frame = CGRectMake(margin, fifthrowTopY, areawidth, 26);
-    sixthrowTopY = fifthrowTopY + _selectWavetype.frame.size.height;
+    _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
+    
+
+    LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
+    
+    _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*2, 26);
+    
+    sixthrowTopY = LabelNoteTopY + _selectWavetype.frame.size.height;
     sixthrowCenterY = sixthrowTopY + 36/2;
     
     int sixthrowBottomY = sixthrowTopY + 36;
@@ -186,25 +190,29 @@ int bottomY = 0;
 
     if (_bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
-        self.banner.frame = CGRectMake(0, bottomY - 50, areawidth, 50);
-        self.banner.alpha = 1.0f;
+        _banner.frame = CGRectMake(0, bottomY - _banner.frame.size.height, areawidth, 50);
+        _banner.alpha = 1.0f;
         [UIView commitAnimations];
     }else{
-        self.banner.frame = CGRectMake(0, bottomY, areawidth, 50);
-        self.banner.alpha = 0.0f;
+        _banner.frame = CGRectMake(0, bottomY, areawidth, 50);
+        _banner.alpha = 0.0f;
     }
     
-    NSLog(@"orientation       = %d",self.interfaceOrientation);
-    NSLog(@"statusbar size    = %d",statusbarheight);
-    NSLog(@"bouns origin x    = %f",bounsframesize.origin.x);
-    NSLog(@"bouns origin y    = %f",bounsframesize.origin.y);
-    NSLog(@"bouns width       = %f",bounsframesize.size.width);
-    NSLog(@"bouns height      = %f",bounsframesize.size.height);
-    NSLog(@"appframe origin x = %f",appframesize.origin.x);
-    NSLog(@"appframe origin y = %f",appframesize.origin.y);
-    NSLog(@"appframe width    = %f",appframesize.size.width);
-    NSLog(@"appframe height   = %f",appframesize.size.height);
-
+    NSLog(@"orientation = %d",self.interfaceOrientation);
+    NSLog(@"arearWidth  = %d",areawidth);
+    NSLog(@"arearHeight = %d",areaheight);
+    NSLog(@"bottomY     = %d",bottomY);
+    NSLog(@"banner origin x=%f y=%f",_banner.frame.origin.x,_banner.frame.origin.y);
+    NSLog(@"banner size   w=%f h=%f",_banner.frame.size.width,_banner.frame.size.height);
+//    NSLog(@"statusbar size    = %d",statusbarheight);
+//    NSLog(@"bouns origin x    = %f",bounsframesize.origin.x);
+//    NSLog(@"bouns origin y    = %f",bounsframesize.origin.y);
+//    NSLog(@"bouns width       = %f",bounsframesize.size.width);
+//    NSLog(@"bouns height      = %f",bounsframesize.size.height);
+//    NSLog(@"appframe origin x = %f",appframesize.origin.x);
+//    NSLog(@"appframe origin y = %f",appframesize.origin.y);
+//    NSLog(@"appframe width    = %f",appframesize.size.width);
+//    NSLog(@"appframe height   = %f",appframesize.size.height);
 }
 - (void)didReceiveMemoryWarning
 {
@@ -460,35 +468,27 @@ int bottomY = 0;
 }
 
 //AdBannerアニメーション
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//    CGRect bannerFrame = self.bannerView.frame;
-//    bannerFrame.origin.y = self.view.frame.size.height;
-//    self.bannerView.frame = bannerFrame;
-//}
-
 -(void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    if (!self.bannerIsVisible) {
+    if (!_bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        banner.frame = CGRectOffset(banner.frame, 0, -banner.frame.size.height);
+        banner.frame = CGRectMake(0, bottomY - banner.frame.size.height, areawidth, 50);
         banner.alpha = 1.0f;
         [UIView commitAnimations];
-        self.bannerIsVisible = YES;
+        _bannerIsVisible = YES;
     }
     NSLog(@"広告在庫あり");
+    NSLog(@"banner height = %f",banner.frame.size.height);
 }
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    if (self.bannerIsVisible) {
+    if (_bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        banner.frame = CGRectMake(0, bottomY, areawidth, 50);
         banner.alpha = 0.0f;
         [UIView commitAnimations];
-        
-        self.bannerIsVisible = NO;
+        _bannerIsVisible = NO;
     }
     NSLog(@"広告在庫なし");
 }

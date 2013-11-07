@@ -159,14 +159,19 @@
                                     <segue destination="Iuq-m8-FFJ" kind="modal" id="FRr-b4-y90"/>
                                 </connections>
                             </button>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NMk-yZ-1M9">
+                                <rect key="frame" x="1" y="430" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="AfrecHzLabel" destination="ZzB-lM-VBB" id="iUs-oC-E6E"/>
                         <outlet property="AfrecStepper" destination="TnF-dP-e97" id="jMh-On-Qyo"/>
                         <outlet property="AfrecValue" destination="Kmh-Zy-Xim" id="AV5-Nb-6Jm"/>
                         <outlet property="LabelFrec" destination="20" id="PcD-yL-JES"/>
+                        <outlet property="LabelNote" destination="qdb-tR-lS4" id="NcB-9Z-YoQ"/>
+                        <outlet property="LabelNoteJ" destination="qdb-tR-lS4" id="dqF-Eq-UxM"/>
                         <outlet property="ToneA" destination="yd8-Ey-m1v" id="aVo-0O-MKr"/>
                         <outlet property="ToneAE" destination="un8-hl-alR" id="HYk-BC-bkh"/>
                         <outlet property="ToneD" destination="E7D-se-ogA" id="gSU-tm-PYZ"/>
@@ -174,6 +179,11 @@
                         <outlet property="ToneE" destination="BGJ-x6-ylD" id="yPt-0e-jQ4"/>
                         <outlet property="ToneG" destination="dHT-Ui-9JH" id="M2E-CF-d9m"/>
                         <outlet property="ToneGD" destination="Bbx-Zc-Gde" id="GLr-w9-ZMX"/>
+                        <outlet property="banner" destination="NMk-yZ-1M9" id="cjb-6u-iAT"/>
+                        <outlet property="helpButton" destination="Ojc-9b-M3x" id="Y7p-BP-EXh"/>
+                        <outlet property="selectWavetype" destination="iJf-SO-GGG" id="Ngy-Dp-dRf"/>
+                        <outlet property="stepperFrecLabel" destination="3El-Cw-8kF" id="SiO-1y-3Ft"/>
+                        <outlet property="stepperFreclabelHz" destination="ZzB-lM-VBB" id="uIN-Ys-Jsg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>

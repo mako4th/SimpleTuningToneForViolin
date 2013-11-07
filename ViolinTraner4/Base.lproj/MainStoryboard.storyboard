@@ -174,7 +174,6 @@
                     <navigationItem key="navigationItem" id="dz2-qs-gOF"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="AfrecHzLabel" destination="ZzB-lM-VBB" id="iUs-oC-E6E"/>
                         <outlet property="AfrecStepper" destination="TnF-dP-e97" id="jMh-On-Qyo"/>
                         <outlet property="AfrecValue" destination="Kmh-Zy-Xim" id="AV5-Nb-6Jm"/>
                         <outlet property="LabelFrec" destination="20" id="PcD-yL-JES"/>
