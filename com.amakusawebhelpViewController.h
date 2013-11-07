@@ -11,4 +11,7 @@
 @interface com_amakusawebhelpViewController : UIViewController <UIWebViewDelegate>
 - (IBAction)back:(id)sender;
 @property (weak, nonatomic) IBOutlet UIWebView *HelpView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *nBar;
+@property (weak, nonatomic) IBOutlet UIWebView *wView;
+
 @end

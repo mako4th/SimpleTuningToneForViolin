@@ -7,7 +7,7 @@
 //
 
 #import "com.amakusawebhelpViewController.h"
-
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 @interface com_amakusawebhelpViewController ()
 
 @end
@@ -27,6 +27,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        NSLog(@"ios7以上");
+        _nBar.frame = CGRectOffset(_nBar.frame, 0, 20);
+        _wView.frame = CGRectMake(_wView.frame.origin.x, _wView.frame.origin.y + 20, _wView.frame.size.width, _wView.frame.size.height-20);
+    }else{
+        NSLog(@"ios7以下");
+    }
     NSString *path = [[NSBundle mainBundle]pathForResource:@"index" ofType:@"html"];
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];

@@ -123,7 +123,7 @@
                                 </connections>
                             </segmentedControl>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="TnF-dP-e97">
-                                <rect key="frame" x="5" y="361" width="94" height="23"/>
+                                <rect key="frame" x="5" y="360" width="94" height="23"/>
                                 <color key="tintColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AfrecStepper:" destination="2" eventType="valueChanged" id="SKx-Eh-jSC"/>
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-298"/>
+            <point key="canvasLocation" x="508" y="-287"/>
         </scene>
         <!--Com amakusawebhelp View Controller-->
         <scene sceneID="d0o-Tt-dS0">
@@ -216,6 +216,7 @@
                             <navigationBar contentMode="scaleToFill" id="QOh-DP-Oik">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                 <items>
                                     <navigationItem title="Help" id="GyE-QP-4il">
                                         <barButtonItem key="rightBarButtonItem" id="6d7-BA-gmj">
@@ -240,6 +241,8 @@
                     </view>
                     <connections>
                         <outlet property="HelpView" destination="PyQ-nR-uFf" id="Pjt-sa-lmV"/>
+                        <outlet property="nBar" destination="QOh-DP-Oik" id="3qf-Bc-qAL"/>
+                        <outlet property="wView" destination="PyQ-nR-uFf" id="xFh-sU-b12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9q-Fi-aAo" userLabel="First Responder" sceneMemberID="firstResponder"/>

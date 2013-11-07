@@ -84,7 +84,6 @@ int areawidth = 0;
     int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,LabelNoteTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areaheight;
     
     int margin = 4;
-    float hpersent = 4.0;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
     CGRect bounsframesize = [[UIScreen mainScreen] bounds];
@@ -94,7 +93,7 @@ int areawidth = 0;
         areawidth = appframesize.size.width;
         areaheight = appframesize.size.height;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.height;
-        bottomY = appframesize.size.height;
+        bottomY = areaheight;
         
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
             areaoriginY = statusbarheight;
@@ -105,7 +104,7 @@ int areawidth = 0;
         }
         
         btnwidth = roundf((areawidth - margin*3)/2);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - margin)/hpersent);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - 85 - margin*5)/2.5);
         dupToneheight = btnheight / 2;
         dupToneWidth = roundf((areawidth - margin*4)/3);
         
@@ -132,8 +131,8 @@ int areawidth = 0;
             NSLog(@"ios7以下");
         }
         
-        btnwidth = roundf((areawidth - margin*4)/3.0);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - margin)/3.5);
+        btnwidth = roundf((areawidth - margin*4)/3);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - 85 - margin*6)/2);
         dupToneheight = ((btnheight * 2 + margin)-margin*2)/3;
         dupToneWidth = btnwidth;
 
@@ -145,27 +144,28 @@ int areawidth = 0;
         _ToneDA.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight + margin, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight*2 + margin*2, dupToneWidth, dupToneheight);
     }
-    
+   
+    _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
 
     AtoEsFontSize = roundf(btnheight*0.8);
+    _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
     _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
     _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
     _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-    duptoneFontSize = roundf(dupToneheight*0.8);
     
-    _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
+    duptoneFontSize = roundf(dupToneheight*0.6);
+    _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+    _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+    _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+
     
     _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
     _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
-
     _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
     _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
     
-
-
     _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
     
-
     LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
     
     _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*2, 26);
@@ -186,8 +186,6 @@ int areawidth = 0;
     _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
     _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
 
-    
-
     if (_bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
         _banner.frame = CGRectMake(0, bottomY - _banner.frame.size.height, areawidth, 50);
@@ -199,11 +197,11 @@ int areawidth = 0;
     }
     
     NSLog(@"orientation = %d",self.interfaceOrientation);
-    NSLog(@"arearWidth  = %d",areawidth);
-    NSLog(@"arearHeight = %d",areaheight);
-    NSLog(@"bottomY     = %d",bottomY);
-    NSLog(@"banner origin x=%f y=%f",_banner.frame.origin.x,_banner.frame.origin.y);
-    NSLog(@"banner size   w=%f h=%f",_banner.frame.size.width,_banner.frame.size.height);
+//    NSLog(@"arearWidth  = %d",areawidth);
+//    NSLog(@"arearHeight = %d",areaheight);
+//    NSLog(@"bottomY     = %d",bottomY);
+//    NSLog(@"banner origin x=%f y=%f",_banner.frame.origin.x,_banner.frame.origin.y);
+//    NSLog(@"banner size   w=%f h=%f",_banner.frame.size.width,_banner.frame.size.height);
 //    NSLog(@"statusbar size    = %d",statusbarheight);
 //    NSLog(@"bouns origin x    = %f",bounsframesize.origin.x);
 //    NSLog(@"bouns origin y    = %f",bounsframesize.origin.y);
@@ -335,7 +333,7 @@ int areawidth = 0;
     [self DownTaper];
     vs.isplay = 0;
     UIColor *defaultcolor;
-    defaultcolor = self.AfrecHzLabel.textColor;
+    defaultcolor = self.LabelFrec.textColor;
     
     self.ToneA.backgroundColor = defaultcolor;
     self.ToneD.backgroundColor = defaultcolor;
@@ -422,7 +420,7 @@ int areawidth = 0;
 - (void)ToneButtonChangeColler:(UIButton *)playing
 {
     UIColor *defaultcolor;
-    defaultcolor = self.AfrecHzLabel.textColor;
+    defaultcolor = self.LabelFrec.textColor;
     
     self.ToneA.backgroundColor = defaultcolor;
     self.ToneD.backgroundColor = defaultcolor;
@@ -478,7 +476,6 @@ int areawidth = 0;
         _bannerIsVisible = YES;
     }
     NSLog(@"広告在庫あり");
-    NSLog(@"banner height = %f",banner.frame.size.height);
 }
 
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error

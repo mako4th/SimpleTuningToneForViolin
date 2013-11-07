@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *ToneGD;
 @property (weak, nonatomic) IBOutlet UIButton *ToneDA;
 @property (weak, nonatomic) IBOutlet UIButton *ToneAE;
-@property (weak, nonatomic) IBOutlet UILabel *AfrecHzLabel;
+
 @property (nonatomic) BOOL bannerIsVisible;
 @property (weak, nonatomic) IBOutlet UILabel *LabelNote;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectWavetype;
