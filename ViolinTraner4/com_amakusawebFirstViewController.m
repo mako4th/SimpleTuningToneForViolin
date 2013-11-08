@@ -24,9 +24,9 @@ int bottomY = 0;
 int areawidth = 0;
 
 //画面回転有効
-//- (BOOL)shouldAutorotate{
-//    return YES;
-//}
+- (BOOL)shouldAutorotate{
+    return YES;
+}
 
 //全方向対応
 - (NSUInteger)supportedInterfaceOrientations{
@@ -35,12 +35,8 @@ int areawidth = 0;
 
 //画面回転開始時
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    NSLog(@"interfaceOrientation : %d",self.interfaceOrientation);
     [self resizeViewObjects];
 }
-//-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-//    [self resizeViewObjects];
-//}
 
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
@@ -83,7 +79,7 @@ int areawidth = 0;
 -(void)resizeViewObjects{
     int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,LabelNoteTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areaheight;
     
-    int margin = 4;
+    int margin = 2;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
     CGRect bounsframesize = [[UIScreen mainScreen] bounds];
@@ -104,7 +100,7 @@ int areawidth = 0;
         }
         
         btnwidth = roundf((areawidth - margin*3)/2);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - 85 - margin*5)/2.5);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - 90 - margin*5)/2.5);
         dupToneheight = btnheight / 2;
         dupToneWidth = roundf((areawidth - margin*4)/3);
         
@@ -132,7 +128,7 @@ int areawidth = 0;
         }
         
         btnwidth = roundf((areawidth - margin*4)/3);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - 85 - margin*6)/2);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - 90 - margin*6)/2);
         dupToneheight = ((btnheight * 2 + margin)-margin*2)/3;
         dupToneWidth = btnwidth;
 
