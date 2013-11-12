@@ -23,6 +23,16 @@
     return self;
 }
 
+//画面回転有効
+- (BOOL)shouldAutorotate{
+    return NO;
+}
+
+//方向対応
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

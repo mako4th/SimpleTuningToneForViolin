@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -10,17 +10,17 @@
             <objects>
                 <viewController title="TuningTone" id="2" userLabel="TunintTone" customClass="com_amakusawebFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="top" id="16">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="周波数" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="20">
-                                <rect key="frame" x="80" y="32" width="123" height="20"/>
+                                <rect key="frame" x="80" y="31" width="123" height="20"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.89151065910000005" green="0.95149233150000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yd8-Ey-m1v">
-                                <rect key="frame" x="5" y="64" width="152" height="95"/>
+                                <rect key="frame" x="5" y="61" width="152" height="95"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="69"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E7D-se-ogA">
-                                <rect key="frame" x="162" y="64" width="152" height="95"/>
+                                <rect key="frame" x="162" y="61" width="152" height="95"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="69"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dHT-Ui-9JH">
-                                <rect key="frame" x="5" y="167" width="152" height="95"/>
+                                <rect key="frame" x="5" y="158" width="152" height="95"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="69"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BGJ-x6-ylD">
-                                <rect key="frame" x="162" y="167" width="152" height="95"/>
+                                <rect key="frame" x="162" y="158" width="152" height="95"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="69"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,26 +68,26 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A =" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3El-Cw-8kF">
-                                <rect key="frame" x="119" y="398" width="27" height="21"/>
+                                <rect key="frame" x="119" y="381" width="27" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="442" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kmh-Zy-Xim">
-                                <rect key="frame" x="146" y="385" width="75" height="33"/>
+                                <rect key="frame" x="146" y="368" width="75" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" id="TnF-dP-e97">
-                                <rect key="frame" x="14" y="390" width="94" height="23"/>
+                                <rect key="frame" x="14" y="370" width="94" height="27"/>
                                 <color key="tintColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="AfrecStepper:" destination="2" eventType="valueChanged" id="SKx-Eh-jSC"/>
                                 </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bbx-Zc-Gde">
-                                <rect key="frame" x="6" y="268" width="96" height="53"/>
+                                <rect key="frame" x="6" y="255" width="96" height="53"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jUs-Ck-QFY">
-                                <rect key="frame" x="119" y="268" width="84" height="53"/>
+                                <rect key="frame" x="119" y="255" width="84" height="53"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -111,7 +111,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="un8-hl-alR">
-                                <rect key="frame" x="218" y="268" width="98" height="53"/>
+                                <rect key="frame" x="218" y="255" width="98" height="53"/>
                                 <color key="backgroundColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,7 +123,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="iJf-SO-GGG">
-                                <rect key="frame" x="6" y="344" width="310" height="30"/>
+                                <rect key="frame" x="6" y="329" width="310" height="30"/>
                                 <segments>
                                     <segment title="sin波"/>
                                     <segment title="三角波"/>
@@ -149,7 +149,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Ojc-9b-M3x">
-                                <rect key="frame" x="279" y="381" width="22" height="22"/>
+                                <rect key="frame" x="279" y="381" width="18" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal">
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NMk-yZ-1M9">
-                                <rect key="frame" x="1" y="430" width="320" height="50"/>
+                                <rect key="frame" x="1" y="430" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="HAu-Z3-o5r"/>
@@ -198,11 +198,11 @@
             <objects>
                 <viewController id="Iuq-m8-FFJ" customClass="com_amakusawebhelpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QdD-3i-aSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleAspectFit" scalesPageToFit="YES" id="IEr-IK-GpN">
-                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -217,7 +217,7 @@
                                     <navigationItem title="Help" id="Pzc-ZZ-JTN">
                                         <barButtonItem key="rightBarButtonItem" id="0f1-5a-NP2">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9dC-5d-nH7">
-                                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                                <rect key="frame" x="244" y="6" width="71" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="戻る">
