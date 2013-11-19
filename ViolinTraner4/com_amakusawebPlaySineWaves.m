@@ -15,6 +15,14 @@
 com_amakusawebPlaySineWaves *vsn;
 
 -(void)playSineWave{
+    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+    UInt32 category = kAudioSessionCategory_MediaPlayback;
+    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,
+                            sizeof(UInt32),
+                            &category);
+    AudioSessionSetActive(YES);
+    
+    
     AudioComponentDescription acd;
     acd.componentType = kAudioUnitType_Output;
     acd.componentSubType = kAudioUnitSubType_RemoteIO;

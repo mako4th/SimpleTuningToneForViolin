@@ -113,7 +113,47 @@ int areawidth = 0;
         _ToneGD.frame = CGRectMake(margin, thirdrowTopY, dupToneWidth, dupToneheight);
         _ToneDA.frame = CGRectMake(margin*2 + dupToneWidth,thirdrowTopY, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(margin*3 + dupToneWidth*2,thirdrowTopY, dupToneWidth, dupToneheight);
-     
+        
+        _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
+        
+        AtoEsFontSize = roundf(btnheight*0.8);
+        _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        
+        duptoneFontSize = roundf(dupToneheight*0.4);
+        _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        
+        
+        _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
+        _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
+        _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
+        _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
+        
+        _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
+        
+        LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
+        
+        _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*2, 26);
+        
+        sixthrowTopY = LabelNoteTopY + _selectWavetype.frame.size.height;
+        sixthrowCenterY = sixthrowTopY + 36/2;
+        
+        int sixthrowBottomY = sixthrowTopY + 36;
+        Leftx = margin;
+        _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
+        Leftx += _AfrecStepper.frame.size.width + margin*8;
+        _stepperFrecLabel.frame = CGRectMake(Leftx,sixthrowBottomY - 21 ,27, 21);
+        Leftx += _stepperFrecLabel.frame.size.width + margin;
+        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 75, 36);
+        Leftx += _AfrecValue.frame.size.width + margin;
+        _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
+        Leftx += _stepperFreclabelHz.frame.size.width + margin;
+        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
+        
     }else{
         areawidth = appframesize.size.height;
         areaheight = appframesize.size.width;
@@ -129,7 +169,7 @@ int areawidth = 0;
         }
         
         btnwidth = roundf((areawidth - margin*4)/3);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - 90 - margin*6)/2);
+        btnheight = roundf((areaheight - self.banner.frame.size.height - 70 - margin*6)/2);
         dupToneheight = ((btnheight * 2 + margin)-margin*2)/3;
         dupToneWidth = btnwidth;
 
@@ -140,48 +180,48 @@ int areawidth = 0;
         _ToneGD.frame = CGRectMake(btnwidth*2 + margin*3, firstrowTopY, dupToneWidth, dupToneheight);
         _ToneDA.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight + margin, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight*2 + margin*2, dupToneWidth, dupToneheight);
+        
+        _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
+        
+        AtoEsFontSize = roundf(btnheight*0.8);
+        _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
+        
+        duptoneFontSize = roundf(dupToneheight*0.6);
+        _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
+        
+        
+        _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
+        _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
+        _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
+        _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
+        
+        _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
+        
+        LabelNoteTopY = forthrowTopY;
+        
+        
+        sixthrowTopY = LabelNoteTopY + _LabelNote.frame.size.height;
+        sixthrowCenterY = sixthrowTopY + 36/2;
+        
+        int sixthrowBottomY = sixthrowTopY + 36;
+        Leftx = margin;
+        _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
+        Leftx += _AfrecStepper.frame.size.width + margin * 10;
+        _stepperFrecLabel.frame = CGRectMake(Leftx,sixthrowBottomY - 21 ,27, 21);
+        Leftx += _stepperFrecLabel.frame.size.width + margin;
+        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 75, 36);
+        Leftx += _AfrecValue.frame.size.width + margin;
+        _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
+        Leftx += _stepperFreclabelHz.frame.size.width + margin;
+        _selectWavetype.frame = CGRectMake(Leftx, sixthrowCenterY - 13, areawidth-Leftx-50, 26);
+        Leftx += _selectWavetype.frame.size.width + margin*5;
+        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
     }
-   
-    _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
-
-    AtoEsFontSize = roundf(btnheight*0.8);
-    _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-    _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-    _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-    _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-    
-    duptoneFontSize = roundf(dupToneheight*0.6);
-    _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
-    _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
-    _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
-
-    
-    _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
-    _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
-    _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
-    _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
-    
-    _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
-    
-    LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
-    
-    _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*2, 26);
-    
-    sixthrowTopY = LabelNoteTopY + _selectWavetype.frame.size.height;
-    sixthrowCenterY = sixthrowTopY + 36/2;
-    
-    int sixthrowBottomY = sixthrowTopY + 36;
-    Leftx = margin;
-    _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
-    Leftx += _AfrecStepper.frame.size.width + margin;
-    _stepperFrecLabel.frame = CGRectMake(Leftx,sixthrowBottomY - 21 ,27, 21);
-    Leftx += _stepperFrecLabel.frame.size.width + margin;
-    _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 75, 36);
-    Leftx += _AfrecValue.frame.size.width + margin;
-    _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
-    Leftx += _stepperFreclabelHz.frame.size.width + margin;
-    _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
-    _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
 
     if (_bannerIsVisible) {
         [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
@@ -417,6 +457,10 @@ int areawidth = 0;
         vs.wavetype = Localwavetype;
     }else
         [self ToneResume];
+}
+
+- (IBAction)helpButton:(UIButton *)sender {
+    [self StopWave];
 }
 
 - (void)ToneButtonChangeColler:(UIButton *)playing

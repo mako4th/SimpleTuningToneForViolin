@@ -40,6 +40,7 @@
 - (IBAction)ToneDA:(id)sender;
 - (IBAction)ToneAE:(id)sender;
 - (IBAction)selectWavetypeSegmentedC:(id)sender;
+- (IBAction)helpButton:(UIButton *)sender;
 
 - (IBAction)AfrecStepper:(UIStepper *)sender;
 
