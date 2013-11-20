@@ -44,10 +44,19 @@ int areawidth = 0;
     [self resizeViewObjects];
 }
 
+-(void)bgStopWave:(NSNotification *)notification{
+    [self StopWave];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    if (&UIApplicationWillTerminateNotification) {
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self selector:@selector(bgStopWave:) name:UIApplicationWillTerminateNotification object:[UIApplication sharedApplication]];
+    }
+    
     
     //周波数選択ステッパー初期化
     self.AfrecStepper.minimumValue = 430;
@@ -385,6 +394,7 @@ int areawidth = 0;
     self.ToneDA.backgroundColor = defaultcolor;
     self.ToneAE.backgroundColor = defaultcolor;
     self.LabelFrec.textColor = defaultcolor;
+    NSLog(@"stopwave");
 }
 
 - (IBAction)ToneA:(id)sender {
