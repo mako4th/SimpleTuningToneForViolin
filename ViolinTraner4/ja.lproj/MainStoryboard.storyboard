@@ -17,7 +17,7 @@
                                 <rect key="frame" x="80" y="31" width="123" height="20"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
                                 <color key="textColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.89151065910000005" green="0.95149233150000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.69648152370000005" green="0.8671875" blue="0.78946167879999996" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yd8-Ey-m1v">
                                 <rect key="frame" x="5" y="61" width="152" height="95"/>
