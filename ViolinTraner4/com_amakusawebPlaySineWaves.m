@@ -15,12 +15,19 @@
 com_amakusawebPlaySineWaves *vsn;
 
 -(void)playSineWave{
+    //サイレントモードでも音をならす
     AudioSessionInitialize(NULL, NULL, NULL, NULL);
     UInt32 category = kAudioSessionCategory_MediaPlayback;
     AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,
                             sizeof(UInt32),
                             &category);
     AudioSessionSetActive(YES);
+
+    //出力種別を調べる
+    UInt32 routeSize = sizeof(CFStringRef);
+    CFStringRef route;
+    AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &routeSize, &route);
+    NSLog(@"route = %@",route);
     
     
     AudioComponentDescription acd;
