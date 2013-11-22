@@ -152,26 +152,26 @@ static OSStatus renderer(void *inRef,
 }
 
 - (float) getAMP{
-    //テーパなし
-    vsn.taperAMP = (vsn.isplay == 1? 1:0);
-    
+
     //鳴り始めのテーパ
     if (vsn.flgUpTaper == 1) {
-        vsn.taperAMP = vsn.UPTaperCount/TaperCountDefoultNum;
+        vsn.taperAMP = vsn.UPTaperCount/(float)vsn.UPTaperMaxCount;
         vsn.UPTaperCount++;
-        if (vsn.UPTaperCount == TaperCountDefoultNum) {
+        if (vsn.UPTaperCount == vsn.UPTaperMaxCount) {
             vsn.flgUpTaper = 0;
+            vsn.UPTaperCount = 0;
+            vsn.taperAMP = 1;
         }
     }
     
     //鳴り終わりのテーパ
     if (vsn.flgDownTaper == 1) {
-        vsn.taperAMP = vsn.DownTaperCount/TaperCountDefoultNum;
-        vsn.DownTaperCount--;
-        if (vsn.DownTaperCount < 0) {
+        vsn.taperAMP -= 1.0/DownTaperDefoultNum;
+        if (vsn.taperAMP < 0) {
             vsn.phase = 0;
             vsn.isplay = 0;
             vsn.flgDownTaper = 0;
+            vsn.taperAMP = 0;
         }
     }
     

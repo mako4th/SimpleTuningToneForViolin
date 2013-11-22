@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#define TaperCountDefoultNum 2205.0
+#define TaperCountDefoultNum 44100.0
+#define DownTaperDefoultNum 2205.0
 
 @interface com_amakusawebPlaySineWaves : NSObject{
     AudioUnit au;
@@ -29,6 +30,7 @@
 @property (nonatomic) BOOL flgTaperOn;
 @property (nonatomic) int UPTaperCount;
 @property (nonatomic) int DownTaperCount;
+@property (nonatomic) double UPTaperMaxCount;
 @property (nonatomic) float TaperOn;
 @property (nonatomic) float taperAMP;
 @property (nonatomic) Float64 lastFrec;

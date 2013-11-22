@@ -260,9 +260,9 @@ int areawidth = 0;
     [UIView commitAnimations];
     
 }
-    
-    
-    
+
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -282,7 +282,9 @@ int areawidth = 0;
 - (void)ToneGwave{
     [self DownTaper];
     NSLog(@"G pressed");
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
     self.LabelFrec.text = [NSString stringWithFormat:@"G = %f Hz",frecG];
+    vs.flgDownTaper = 0;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
     vs.frequency = frecG;
@@ -294,7 +296,9 @@ int areawidth = 0;
 -(void)ToneDwave{
     [self DownTaper];
     NSLog(@"D pressed");
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
     self.LabelFrec.text = [NSString stringWithFormat:@"D = %f Hz",frecD];
+    vs.flgDownTaper = 0;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
     vs.frequency = frecD;
@@ -306,7 +310,9 @@ int areawidth = 0;
 -(void)ToneAwave{
     NSLog(@"A pressed");
     [self DownTaper];
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
     self.LabelFrec.text = [NSString stringWithFormat:@"A = %f Hz",frecA];
+    vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -320,6 +326,8 @@ int areawidth = 0;
     NSLog(@"E pressed");
     [self DownTaper];
     self.LabelFrec.text = [NSString stringWithFormat:@"E = %f Hz",frecE];
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
+    vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -333,6 +341,8 @@ int areawidth = 0;
     NSLog(@"GD pressed");
     [self DownTaper];
     self.LabelFrec.text = @"GD";
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
+    vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -346,6 +356,8 @@ int areawidth = 0;
     NSLog(@"DA pressed");
     [self DownTaper];
     self.LabelFrec.text = @"DA";
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
+    vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -359,6 +371,8 @@ int areawidth = 0;
     NSLog(@"AE pressed");
     [self DownTaper];
     self.LabelFrec.text = @"AE";
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
+    vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -370,7 +384,8 @@ int areawidth = 0;
 
 -(void)DownTaper{
     if (vs.isplay == 1) {
-        vs.DownTaperCount = TaperCountDefoultNum;
+        vs.flgUpTaper = 0;
+        vs.DownTaperCount = DownTaperDefoultNum;
         vs.flgDownTaper = 1;
         while (vs.flgDownTaper == 1 ) {
             ;
