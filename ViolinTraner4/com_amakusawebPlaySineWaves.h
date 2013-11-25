@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-#define TaperCountDefoultNum 44100.0
+#define TaperCountDefoultNum 8820.0
 #define DownTaperDefoultNum 2205.0
 
 @interface com_amakusawebPlaySineWaves : NSObject{

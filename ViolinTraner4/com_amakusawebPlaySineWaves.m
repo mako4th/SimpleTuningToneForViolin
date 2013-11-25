@@ -174,7 +174,7 @@ static OSStatus renderer(void *inRef,
             vsn.taperAMP = 0;
         }
     }
-    
+    //NSLog(@"taperAMP = %f",vsn.taperAMP);
     return vsn.taperAMP;
 }
 

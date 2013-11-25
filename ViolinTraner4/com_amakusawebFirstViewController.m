@@ -44,7 +44,13 @@ int areawidth = 0;
     [self resizeViewObjects];
 }
 
+//バックグラウンド以降時の処理
 -(void)bgStopWave:(NSNotification *)notification{
+    //終了時の周波数（A)と波形の保存
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setInteger:self.AfrecStepper.value forKey:@"afrecsteppervalue"];
+    [ud setInteger:self.selectWavetype.selectedSegmentIndex forKey:@"selectwavetype"];
+    
     [self StopWave];
 }
 
@@ -52,18 +58,28 @@ int areawidth = 0;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //アプリ終了時の処理
     if (&UIApplicationWillTerminateNotification) {
         [[NSNotificationCenter defaultCenter]
          addObserver:self selector:@selector(bgStopWave:) name:UIApplicationWillTerminateNotification object:[UIApplication sharedApplication]];
     }
     
+    //保存されたユーザ設定値呼び出しとデフォルト値の設定
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
+    [defaults setObject:@"442" forKey:@"afrecsteppervalue"];
+    [defaults setObject:@"0" forKey:@"selectwavetype"];
     
     //周波数選択ステッパー初期化
     self.AfrecStepper.minimumValue = 430;
     self.AfrecStepper.maximumValue = 450;
-    self.AfrecStepper.value = FRACTONEA;
-    self.AfrecValue.text = [NSString stringWithFormat:@"%i",FRACTONEA];
+    self.AfrecStepper.value = [ud integerForKey:@"afrecsteppervalue"];
+    self.AfrecValue.text = [NSString stringWithFormat:@"%i",(int)self.AfrecStepper.value];
     
+    //波形タイプ設定読み込み　デフォルトは0
+    self.selectWavetype.selectedSegmentIndex = [ud integerForKey:@"selectwavetype"];
+ 
     //周波数セット
     frecA = self.AfrecStepper.value;
     frecD = (frecA * 2)/3;
@@ -78,7 +94,7 @@ int areawidth = 0;
     vs.bitRate = 8;
     vs.frequency = FRACTONEA;
     vs.frequency2 = FRACTONEA;
-    Localwavetype = vs.wavetype = 1; //1:sin 2:三角 3:のこ
+    Localwavetype = vs.wavetype = self.selectWavetype.selectedSegmentIndex + 1;
     vs.taperAMP = 0;
     
     [vs playSineWave];
