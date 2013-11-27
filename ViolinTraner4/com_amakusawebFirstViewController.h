@@ -56,6 +56,7 @@
 - (void)ToneResume;
 - (void)ToneButtonChangeColler:(UIButton *)playing;
 - (void)resizeViewObjects;
+- (void)octBtnChangeColor;
 
 
 

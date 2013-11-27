@@ -22,6 +22,7 @@ const com_amakusawebPlaySineWaves *vs;
 
 int bottomY = 0;
 int areawidth = 0;
+bool octSwitch = NO;
 
 //画面回転有効
 - (BOOL)shouldAutorotate{
@@ -70,16 +71,15 @@ int areawidth = 0;
     NSMutableDictionary *defaults = [NSMutableDictionary dictionary];
     [defaults setObject:@"442" forKey:@"afrecsteppervalue"];
     [defaults setObject:@"0" forKey:@"selectwavetype"];
-    
+    [ud registerDefaults:defaults];
     //周波数選択ステッパー初期化
     self.AfrecStepper.minimumValue = 430;
     self.AfrecStepper.maximumValue = 450;
     self.AfrecStepper.value = [ud integerForKey:@"afrecsteppervalue"];
+    NSLog(@"stepper value = %f",self.AfrecStepper.value);
     self.AfrecValue.text = [NSString stringWithFormat:@"%i",(int)self.AfrecStepper.value];
+
     
-    //波形タイプ設定読み込み　デフォルトは0
-    self.selectWavetype.selectedSegmentIndex = [ud integerForKey:@"selectwavetype"];
- 
     //周波数セット
     frecA = self.AfrecStepper.value;
     frecD = (frecA * 2)/3;
@@ -94,7 +94,20 @@ int areawidth = 0;
     vs.bitRate = 8;
     vs.frequency = FRACTONEA;
     vs.frequency2 = FRACTONEA;
+    
+    //波形タイプ設定読み込み　デフォルトは0
+    self.selectWavetype.selectedSegmentIndex = [ud integerForKey:@"selectwavetype"];
+    if (_selectWavetype.selectedSegmentIndex == 3) {
+        octSwitch = YES;
+        Localwavetype = 1;
+        vs.wavetype = 1;
+        _ToneGD.enabled = NO;
+        _ToneDA.enabled = NO;
+        _ToneAE.enabled = NO;
+        [self octBtnChangeColor];
+    }else{
     Localwavetype = vs.wavetype = self.selectWavetype.selectedSegmentIndex + 1;
+    }
     vs.taperAMP = 0;
     
     [vs playSineWave];
@@ -162,8 +175,7 @@ int areawidth = 0;
         
         LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
         
-        _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*2, 26);
-        
+        _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*3, 26);
         sixthrowTopY = LabelNoteTopY + _selectWavetype.frame.size.height;
         sixthrowCenterY = sixthrowTopY + 36/2;
         
@@ -177,7 +189,7 @@ int areawidth = 0;
         Leftx += _AfrecValue.frame.size.width + margin;
         _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
         Leftx += _stepperFreclabelHz.frame.size.width + margin;
-        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
+        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 5, 18, 19);
         
     }else{
         areawidth = appframesize.size.height;
@@ -236,16 +248,16 @@ int areawidth = 0;
         int sixthrowBottomY = sixthrowTopY + 36;
         Leftx = margin;
         _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
-        Leftx += _AfrecStepper.frame.size.width + margin * 10;
+        Leftx += _AfrecStepper.frame.size.width + margin * 3;
         _stepperFrecLabel.frame = CGRectMake(Leftx,sixthrowBottomY - 21 ,27, 21);
         Leftx += _stepperFrecLabel.frame.size.width + margin;
-        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 75, 36);
-        Leftx += _AfrecValue.frame.size.width + margin;
-        _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
-        Leftx += _stepperFreclabelHz.frame.size.width + margin;
-        _selectWavetype.frame = CGRectMake(Leftx, sixthrowCenterY - 13, areawidth-Leftx-50, 26);
-        Leftx += _selectWavetype.frame.size.width + margin*5;
-        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
+        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 65, 36);
+        Leftx += _AfrecValue.frame.size.width;
+        _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 30, 21);
+        Leftx += _stepperFreclabelHz.frame.size.width;
+        _selectWavetype.frame = CGRectMake(Leftx-5, sixthrowCenterY - 13, areawidth-Leftx-20, 26);
+        Leftx += _selectWavetype.frame.size.width;
+        _helpButton.frame = CGRectMake(Leftx-5, sixthrowCenterY - 19/2, 18, 19);
     }
 
     if (_bannerIsVisible) {
@@ -305,6 +317,9 @@ int areawidth = 0;
     vs.UPTaperCount = 0;
     vs.frequency = frecG;
     vs.frequency2 = frecG;
+    if (octSwitch == YES) {
+        vs.frequency2 = frecG * 2;
+    }
     vs.nowPlaying = 1;
     vs.isplay = 1;
 }
@@ -319,6 +334,9 @@ int areawidth = 0;
     vs.UPTaperCount = 0;
     vs.frequency = frecD;
     vs.frequency2 = frecD;
+    if (octSwitch == YES) {
+        vs.frequency2 = frecD * 2;
+    }
     vs.nowPlaying = 2;
     vs.isplay = 1;
 }
@@ -334,6 +352,9 @@ int areawidth = 0;
     vs.UPTaperCount = 0;
     vs.frequency = frecA;
     vs.frequency2 = frecA;
+    if (octSwitch == YES) {
+        vs.frequency2 = frecA * 2;
+    }
     vs.nowPlaying = 3;
     vs.isplay = 1;
 }
@@ -349,6 +370,9 @@ int areawidth = 0;
     vs.UPTaperCount = 0;
     vs.frequency = frecE;
     vs.frequency2 = frecE;
+    if (octSwitch == YES) {
+        vs.frequency2 = frecE * 2;
+    }
     vs.nowPlaying = 4;
     vs.isplay = 1;
 }
@@ -425,6 +449,9 @@ int areawidth = 0;
     self.ToneDA.backgroundColor = defaultcolor;
     self.ToneAE.backgroundColor = defaultcolor;
     self.LabelFrec.textColor = defaultcolor;
+    if (octSwitch == YES) {
+        [self octBtnChangeColor];
+    }
     NSLog(@"stopwave");
 }
 
@@ -493,11 +520,34 @@ int areawidth = 0;
 
 - (IBAction)selectWavetypeSegmentedC:(id)sender {
     NSLog(@"%d",[sender selectedSegmentIndex]);
-    Localwavetype = [sender selectedSegmentIndex] + 1;
-    if (vs.isplay == 0) {
-        vs.wavetype = Localwavetype;
-    }else
+    //オクターブ
+    if ([sender selectedSegmentIndex ]== 3) {
+        octSwitch = YES;
+        Localwavetype = 1;
+        _ToneGD.enabled = NO;
+        _ToneDA.enabled = NO;
+        _ToneAE.enabled = NO;
+        [self octBtnChangeColor];
+        if ((vs.nowPlaying == 5 || vs.nowPlaying == 6 || vs.nowPlaying == 7) && vs.isplay == 1) {
+            [self StopWave];
+        }else{
+        
         [self ToneResume];
+        }
+        
+    }else{//オクターブ以外
+        octSwitch = NO;
+        _ToneGD.enabled = YES;
+        _ToneDA.enabled = YES;
+        _ToneAE.enabled = YES;
+        [self octBtnChangeColor];
+        Localwavetype = [sender selectedSegmentIndex] + 1;
+        if (vs.isplay == 0) {
+            vs.wavetype = Localwavetype;
+        }else
+            [self ToneResume];
+    }
+         
 }
 
 - (IBAction)helpButton:(UIButton *)sender {
@@ -517,9 +567,23 @@ int areawidth = 0;
     self.ToneDA.backgroundColor = defaultcolor;
     self.ToneAE.backgroundColor = defaultcolor;
     self.LabelFrec.textColor = defaultcolor;
+    if (octSwitch == YES) {
+        [self octBtnChangeColor];
+    }
+    
     playing.backgroundColor = [UIColor colorWithRed:1.0 green:0.7 blue:1.0 alpha:1.0];
 }
-
+-(void)octBtnChangeColor{
+    if (octSwitch == YES) {
+        self.ToneGD.alpha = 0.3;
+        self.ToneDA.alpha = 0.3;
+        self.ToneAE.alpha = 0.3;
+    }else{
+        self.ToneGD.alpha = 1;
+        self.ToneDA.alpha = 1;
+        self.ToneAE.alpha = 1;
+    }
+}
 -(void)ToneResume{
     if (vs.isplay == 1) {
         switch (vs.nowPlaying) {
