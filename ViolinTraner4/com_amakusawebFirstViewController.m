@@ -257,7 +257,7 @@ bool octSwitch = NO;
         Leftx += _stepperFreclabelHz.frame.size.width;
         _selectWavetype.frame = CGRectMake(Leftx-5, sixthrowCenterY - 13, areawidth-Leftx-20, 26);
         Leftx += _selectWavetype.frame.size.width;
-        _helpButton.frame = CGRectMake(Leftx-5, sixthrowCenterY - 19/2, 18, 19);
+        _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
     }
 
     if (_bannerIsVisible) {
