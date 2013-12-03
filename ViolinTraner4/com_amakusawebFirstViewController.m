@@ -641,4 +641,21 @@ bool octSwitch = NO;
     NSLog(@"広告在庫なし");
 }
 
+//バナータップ時に音を止める
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner
+               willLeaveApplication:(BOOL)willLeave
+{
+    BOOL shouldExecuteAction =YES; // アプリケーションはこの方法 を実装する
+    if (!willLeave && shouldExecuteAction)
+    {
+        // ここにコードを挿入して、広告と競合する可能性のあるサービスを一時停止する
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setInteger:self.AfrecStepper.value forKey:@"afrecsteppervalue"];
+        [ud setInteger:self.selectWavetype.selectedSegmentIndex forKey:@"selectwavetype"];
+        
+        [self StopWave];
+    }
+        return shouldExecuteAction;
+    }
+    
 @end
