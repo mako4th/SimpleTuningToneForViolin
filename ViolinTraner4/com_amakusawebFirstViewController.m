@@ -86,7 +86,7 @@ bool octSwitch = NO;
     frecG = (frecA * 4)/9;
     frecE = (frecA * 3)/2;
     
-    self.LabelFrec.text = [NSString stringWithFormat:@"A = %f Hz",frecA];
+    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",frecA];
     
     //playSinWaveの初期設定：無音
     vs = [[com_amakusawebPlaySineWaves alloc] init];
@@ -311,7 +311,7 @@ bool octSwitch = NO;
     [self DownTaper];
     NSLog(@"G pressed");
     vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"G = %f Hz",frecG];
+    self.LabelFrec.text = [NSString stringWithFormat:@"G = %.4f Hz",frecG];
     vs.flgDownTaper = 0;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -328,7 +328,7 @@ bool octSwitch = NO;
     [self DownTaper];
     NSLog(@"D pressed");
     vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"D = %f Hz",frecD];
+    self.LabelFrec.text = [NSString stringWithFormat:@"D = %.4f Hz",frecD];
     vs.flgDownTaper = 0;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
@@ -345,7 +345,7 @@ bool octSwitch = NO;
     NSLog(@"A pressed");
     [self DownTaper];
     vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"A = %f Hz",frecA];
+    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",frecA];
     vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
@@ -362,7 +362,7 @@ bool octSwitch = NO;
 -(void)ToneEwave{
     NSLog(@"E pressed");
     [self DownTaper];
-    self.LabelFrec.text = [NSString stringWithFormat:@"E = %f Hz",frecE];
+    self.LabelFrec.text = [NSString stringWithFormat:@"E = %.4f Hz",frecE];
     vs.UPTaperMaxCount = TaperCountDefoultNum;
     vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
