@@ -8,6 +8,8 @@
 
 #import "com_amakusawebPlaySineWaves.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 @implementation com_amakusawebPlaySineWaves
 
 @synthesize phase,samplerate,bitRate,frequency,wavetype,nowPlaying,taperAMP,lastFrec,flgOFF,flgTaperOn,TaperOn;
@@ -16,13 +18,18 @@ com_amakusawebPlaySineWaves *vsn;
 
 -(void)playSineWave{
     //サイレントモードでも音をならす
-    AudioSessionInitialize(NULL, NULL, NULL, NULL);
-    UInt32 category = kAudioSessionCategory_MediaPlayback;
-    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,
-                            sizeof(UInt32),
-                            &category);
-    AudioSessionSetActive(YES);
-
+//    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+//    UInt32 category = kAudioSessionCategory_MediaPlayback;
+//    AudioSessionSetProperty(kAudioSessionProperty_AudioCategory,
+//                            sizeof(UInt32),
+//                            &category);
+//    AudioSessionSetActive(YES);
+//    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+    [audioSession setActive:YES error:nil];
+    
     //出力種別を調べる
     UInt32 routeSize = sizeof(CFStringRef);
     CFStringRef route;
@@ -41,7 +48,6 @@ com_amakusawebPlaySineWaves *vsn;
     
     AudioComponentInstanceNew(ac, &au);
     
-    AudioUnitInitialize(au);
     
     // コールバックの設定
     AURenderCallbackStruct CallbackStruct;
@@ -70,10 +76,16 @@ com_amakusawebPlaySineWaves *vsn;
                          0,
                          &asbd,
                          sizeof(asbd));
-    
-    
+    //マイク入力をオンにする
+    UInt32 flag = 1;
+    AudioUnitSetProperty(au,
+                         kAudioOutputUnitProperty_EnableIO,
+                         kAudioUnitScope_Input,
+                         1,
+                         &flag,
+                         sizeof(UInt32));
     // 再生開始
-    AudioOutputUnitStart(au);
+    AudioUnitInitialize(au);    AudioOutputUnitStart(au);
 }
 
 

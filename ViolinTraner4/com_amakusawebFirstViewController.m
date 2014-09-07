@@ -8,12 +8,19 @@
 
 #import "com_amakusawebFirstViewController.h"
 #import "com_amakusawebPlaySineWaves.h"
+#import "com.amakusaweb.fft.h"
+
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 @interface com_amakusawebFirstViewController ()
 
 @end
 
-@implementation com_amakusawebFirstViewController
+@implementation com_amakusawebFirstViewController{
+com_amakusaweb_fft *fft;
+//    float fftresult[5];
+    float *fftresult;
+}
+
 
 float frecG,frecD,frecA,frecE;
 int FRACTONEA = 442;
@@ -55,11 +62,14 @@ bool octSwitch = NO;
     [self StopWave];
 }
 
+#pragma mark =====================
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    fftresult = calloc(5, sizeof(float));
     
+    fft = [[com_amakusaweb_fft alloc] initWithBuffaSizeLog2:16 returnArray:fftresult];//2^14=16384  2^15=32768 2^16=65536 2^17=131072
     //アプリ終了時の処理
     if (&UIApplicationWillTerminateNotification) {
         [[NSNotificationCenter defaultCenter]
@@ -120,7 +130,7 @@ bool octSwitch = NO;
     int margin = 2;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
-    CGRect bounsframesize = [[UIScreen mainScreen] bounds];
+ //   CGRect bounsframesize = [[UIScreen mainScreen] bounds];
     
     [UIView beginAnimations:@"aaaaaa" context:NULL];
     if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
@@ -270,7 +280,7 @@ bool octSwitch = NO;
         _banner.alpha = 0.0f;
     }
     
-    NSLog(@"orientation = %d",self.interfaceOrientation);
+    NSLog(@"orientation = %ld",self.interfaceOrientation);
 //    NSLog(@"arearWidth  = %d",areawidth);
 //    NSLog(@"arearHeight = %d",areaheight);
 //    NSLog(@"bottomY     = %d",bottomY);
@@ -308,6 +318,7 @@ bool octSwitch = NO;
 }
 
 - (void)ToneGwave{
+    
     [self DownTaper];
     NSLog(@"G pressed");
     vs.UPTaperMaxCount = TaperCountDefoultNum;
@@ -460,8 +471,17 @@ bool octSwitch = NO;
     if (vs.nowPlaying == 3 && vs.isplay == 1) {
         [self StopWave];
     }
-    else
+    else{
         [self ToneAwave];
+        fft.SampleRate = frecA;
+        CGRect framesize = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200);
+        com_amakusaweb_meterView * mv = [[com_amakusaweb_meterView alloc] initWithFrame:framesize result:fftresult];
+        
+        [self.view addSubview:mv];
+        
+        
+       // [self performSegueWithIdentifier:@"segueFFT" sender:self];
+    }
 }
 
 - (IBAction)ToneE:(id)sender {
@@ -519,7 +539,7 @@ bool octSwitch = NO;
 }
 
 - (IBAction)selectWavetypeSegmentedC:(id)sender {
-    NSLog(@"%d",[sender selectedSegmentIndex]);
+    NSLog(@"%ld",(long)[sender selectedSegmentIndex]);
     //オクターブ
     if ([sender selectedSegmentIndex ]== 3) {
         octSwitch = YES;
@@ -657,5 +677,6 @@ bool octSwitch = NO;
     }
         return shouldExecuteAction;
     }
-    
+- (IBAction)xxxx:(UIStoryboardSegue *)segue{
+}
 @end

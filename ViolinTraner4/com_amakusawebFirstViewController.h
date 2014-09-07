@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
+#import "com.amakusaweb.meterView.h"
+
 @interface com_amakusawebFirstViewController : UIViewController <ADBannerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet ADBannerView *banner;
@@ -57,7 +59,5 @@
 - (void)ToneButtonChangeColler:(UIButton *)playing;
 - (void)resizeViewObjects;
 - (void)octBtnChangeColor;
-
-
 
 @end

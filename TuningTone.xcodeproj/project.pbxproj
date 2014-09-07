@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A0F5C991839D95D0050CAB1 /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A0F5C931839D95D0050CAB1 /* title.jpg */; };
+		3A29180119B44B1000574119 /* com.amakusaweb.fft.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29180019B44B1000574119 /* com.amakusaweb.fft.m */; };
+		3A29180319B44B2B00574119 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29180219B44B2B00574119 /* AVFoundation.framework */; };
+		3A31DB2319B6F153009F2AC6 /* com.amakusaweb.meterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */; };
 		3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */; };
 		3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A414F0F17C47D38007E471A /* AudioToolbox.framework */; };
 		3A99A13817F539350084F607 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A99A13717F539350084F607 /* iAd.framework */; };
@@ -28,6 +31,11 @@
 
 /* Begin PBXFileReference section */
 		3A0F5C931839D95D0050CAB1 /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = title.jpg; sourceTree = "<group>"; };
+		3A2917FF19B44B1000574119 /* com.amakusaweb.fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com.amakusaweb.fft.h; sourceTree = "<group>"; };
+		3A29180019B44B1000574119 /* com.amakusaweb.fft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com.amakusaweb.fft.m; sourceTree = "<group>"; };
+		3A29180219B44B2B00574119 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3A31DB2119B6F153009F2AC6 /* com.amakusaweb.meterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com.amakusaweb.meterView.h; sourceTree = "<group>"; };
+		3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com.amakusaweb.meterView.m; sourceTree = "<group>"; };
 		3A414F0C17C47A13007E471A /* com_amakusawebPlaySineWaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_amakusawebPlaySineWaves.h; sourceTree = "<group>"; };
 		3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebPlaySineWaves.m; sourceTree = "<group>"; };
 		3A414F0F17C47D38007E471A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -60,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A29180319B44B2B00574119 /* AVFoundation.framework in Frameworks */,
 				3A99A13817F539350084F607 /* iAd.framework in Frameworks */,
 				3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */,
 				3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */,
@@ -95,6 +104,10 @@
 		3AEC118B17C33FBE00EFAE28 = {
 			isa = PBXGroup;
 			children = (
+				3A31DB2119B6F153009F2AC6 /* com.amakusaweb.meterView.h */,
+				3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */,
+				3A2917FF19B44B1000574119 /* com.amakusaweb.fft.h */,
+				3A29180019B44B1000574119 /* com.amakusaweb.fft.m */,
 				3AEC119D17C33FBE00EFAE28 /* ViolinTraner4 */,
 				3AEC119617C33FBE00EFAE28 /* Frameworks */,
 				3AEC119517C33FBE00EFAE28 /* Products */,
@@ -113,6 +126,7 @@
 		3AEC119617C33FBE00EFAE28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A29180219B44B2B00574119 /* AVFoundation.framework */,
 				3A99A13717F539350084F607 /* iAd.framework */,
 				3AFC77E517E8064900C15C46 /* Accelerate.framework */,
 				3A414F0F17C47D38007E471A /* AudioToolbox.framework */,
@@ -229,9 +243,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEC11A417C33FBE00EFAE28 /* main.m in Sources */,
+				3A31DB2319B6F153009F2AC6 /* com.amakusaweb.meterView.m in Sources */,
 				3AEC11A817C33FBF00EFAE28 /* com_amakusawebAppDelegate.m in Sources */,
 				3AEC11B417C33FBF00EFAE28 /* com_amakusawebFirstViewController.m in Sources */,
 				3ACFFD0D17FBD52C0013D122 /* com.amakusawebhelpViewController.m in Sources */,
+				3A29180119B44B1000574119 /* com.amakusaweb.fft.m in Sources */,
 				3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
