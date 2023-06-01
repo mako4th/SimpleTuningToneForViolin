@@ -107,7 +107,7 @@ static OSStatus renderer(void *inRef,
     for (int i = 0; i < 5; i++) {
         vDSP_maxvi(bridgedInRef->outputVector, 1, &(bridgedInRef->vdspc), &(bridgedInRef->vdspci), (bridgedInRef->fftBuffaFrames) / 2);
         
-        bridgedInRef->resultArray[i] = (int)bridgedInRef->vdspci * bridgedInRef->s_w_rate;
+        bridgedInRef->resultArray[i] = (int)bridgedInRef->vdspci;// * bridgedInRef->s_w_rate;
         bridgedInRef->outputVector[bridgedInRef->vdspci] = 0;
        // printf("max[%d]= %f\n",i,bridgedInRef->resultArray[i]*(bridgedInRef->s_w_rate));
     }

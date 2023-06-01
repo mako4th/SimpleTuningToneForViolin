@@ -60,4 +60,9 @@
 - (void)resizeViewObjects;
 - (void)octBtnChangeColor;
 
+- (IBAction)Afreq2Stepper:(UIStepper *)sender;
+- (IBAction)Afreq3Stepper:(UIStepper *)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *Afreq2stepper;
+@property (strong, nonatomic) IBOutlet UIStepper *Afreq3stepper;
+
 @end

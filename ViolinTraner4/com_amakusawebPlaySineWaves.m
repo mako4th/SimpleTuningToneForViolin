@@ -86,6 +86,7 @@ com_amakusawebPlaySineWaves *vsn;
                          sizeof(UInt32));
     // 再生開始
     AudioUnitInitialize(au);    AudioOutputUnitStart(au);
+    
 }
 
 
