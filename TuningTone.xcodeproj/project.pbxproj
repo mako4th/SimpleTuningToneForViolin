@@ -13,7 +13,6 @@
 		3A31DB2319B6F153009F2AC6 /* com.amakusaweb.meterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */; };
 		3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */; };
 		3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A414F0F17C47D38007E471A /* AudioToolbox.framework */; };
-		3A99A13817F539350084F607 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A99A13717F539350084F607 /* iAd.framework */; };
 		3AAACE0018484DE600EADD80 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AAACDFF18484DE600EADD80 /* index.html */; };
 		3AAACE0418484F1E00EADD80 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AAACE0318484F1E00EADD80 /* 1.jpg */; };
 		3ACF912F17F29AF500AD9200 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ACF912E17F29AF500AD9200 /* Images.xcassets */; };
@@ -21,7 +20,6 @@
 		3AEC119817C33FBE00EFAE28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119717C33FBE00EFAE28 /* UIKit.framework */; };
 		3AEC119A17C33FBE00EFAE28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119917C33FBE00EFAE28 /* Foundation.framework */; };
 		3AEC119C17C33FBE00EFAE28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEC119B17C33FBE00EFAE28 /* CoreGraphics.framework */; };
-		3AEC11A217C33FBE00EFAE28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AEC11A017C33FBE00EFAE28 /* InfoPlist.strings */; };
 		3AEC11A417C33FBE00EFAE28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC11A317C33FBE00EFAE28 /* main.m */; };
 		3AEC11A817C33FBF00EFAE28 /* com_amakusawebAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC11A717C33FBF00EFAE28 /* com_amakusawebAppDelegate.m */; };
 		3AEC11B117C33FBF00EFAE28 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEC11AF17C33FBF00EFAE28 /* MainStoryboard.storyboard */; };
@@ -39,21 +37,17 @@
 		3A414F0C17C47A13007E471A /* com_amakusawebPlaySineWaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_amakusawebPlaySineWaves.h; sourceTree = "<group>"; };
 		3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebPlaySineWaves.m; sourceTree = "<group>"; };
 		3A414F0F17C47D38007E471A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		3A99A13717F539350084F607 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		3AAACDFF18484DE600EADD80 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3AAACE0318484F1E00EADD80 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		3ACF912E17F29AF500AD9200 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3ACFFD0B17FBD52C0013D122 /* com.amakusawebhelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = com.amakusawebhelpViewController.h; path = ../com.amakusawebhelpViewController.h; sourceTree = "<group>"; };
 		3ACFFD0C17FBD52C0013D122 /* com.amakusawebhelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = com.amakusawebhelpViewController.m; path = ../com.amakusawebhelpViewController.m; sourceTree = "<group>"; };
 		3AD5243217FD2F64004A9054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		3AD8964A17F9810C001E17C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		3AD8964B17F9810C001E17C1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AEC119417C33FBE00EFAE28 /* TuningTone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuningTone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AEC119717C33FBE00EFAE28 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3AEC119917C33FBE00EFAE28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3AEC119B17C33FBE00EFAE28 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3AEC119F17C33FBE00EFAE28 /* TuningTone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TuningTone-Info.plist"; sourceTree = "<group>"; };
-		3AEC11A117C33FBE00EFAE28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AEC11A317C33FBE00EFAE28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3AEC11A517C33FBE00EFAE28 /* TuningTone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TuningTone-Prefix.pch"; sourceTree = "<group>"; };
 		3AEC11A617C33FBE00EFAE28 /* com_amakusawebAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_amakusawebAppDelegate.h; sourceTree = "<group>"; };
@@ -69,7 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A29180319B44B2B00574119 /* AVFoundation.framework in Frameworks */,
-				3A99A13817F539350084F607 /* iAd.framework in Frameworks */,
 				3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */,
 				3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */,
 				3AEC119817C33FBE00EFAE28 /* UIKit.framework in Frameworks */,
@@ -127,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				3A29180219B44B2B00574119 /* AVFoundation.framework */,
-				3A99A13717F539350084F607 /* iAd.framework */,
 				3AFC77E517E8064900C15C46 /* Accelerate.framework */,
 				3A414F0F17C47D38007E471A /* AudioToolbox.framework */,
 				3AEC119717C33FBE00EFAE28 /* UIKit.framework */,
@@ -157,7 +149,6 @@
 		3AEC119E17C33FBE00EFAE28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3AEC11A017C33FBE00EFAE28 /* InfoPlist.strings */,
 				3AEC119F17C33FBE00EFAE28 /* TuningTone-Info.plist */,
 				3AEC11A317C33FBE00EFAE28 /* main.m */,
 				3AEC11A517C33FBE00EFAE28 /* TuningTone-Prefix.pch */,
@@ -208,8 +199,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				English,
-				en,
-				ja,
 				Base,
 			);
 			mainGroup = 3AEC118B17C33FBE00EFAE28;
@@ -227,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AEC11A217C33FBE00EFAE28 /* InfoPlist.strings in Resources */,
 				3A0F5C991839D95D0050CAB1 /* title.jpg in Resources */,
 				3AAACE0018484DE600EADD80 /* index.html in Resources */,
 				3AAACE0418484F1E00EADD80 /* 1.jpg in Resources */,
@@ -256,19 +244,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3AEC11A017C33FBE00EFAE28 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AEC11A117C33FBE00EFAE28 /* en */,
-				3AD8964B17F9810C001E17C1 /* ja */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		3AEC11AF17C33FBF00EFAE28 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3AD8964A17F9810C001E17C1 /* ja */,
 				3AD5243217FD2F64004A9054 /* Base */,
 			);
 			name = MainStoryboard.storyboard;

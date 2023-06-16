@@ -10,9 +10,8 @@
 #import <iAd/iAd.h>
 #import "com.amakusaweb.meterView.h"
 
-@interface com_amakusawebFirstViewController : UIViewController <ADBannerViewDelegate>
+@interface com_amakusawebFirstViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet ADBannerView *banner;
 @property (weak, nonatomic) IBOutlet UILabel *LabelFrec;
 @property (weak, nonatomic) IBOutlet UILabel *AfrecValue;
 @property (weak, nonatomic) IBOutlet UIStepper *AfrecStepper;
@@ -23,16 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *ToneGD;
 @property (weak, nonatomic) IBOutlet UIButton *ToneDA;
 @property (weak, nonatomic) IBOutlet UIButton *ToneAE;
-
-@property (nonatomic) BOOL bannerIsVisible;
 @property (weak, nonatomic) IBOutlet UILabel *LabelNote;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *selectWavetype;
 @property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (weak, nonatomic) IBOutlet UILabel *stepperFrecLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stepperFreclabelHz;
-@property (weak, nonatomic) IBOutlet UILabel *LabelNoteJ;
-
-
 
 - (IBAction)ToneG:(id)sender;
 - (IBAction)ToneD:(id)sender;
@@ -59,10 +53,5 @@
 - (void)ToneButtonChangeColler:(UIButton *)playing;
 - (void)resizeViewObjects;
 - (void)octBtnChangeColor;
-
-- (IBAction)Afreq2Stepper:(UIStepper *)sender;
-- (IBAction)Afreq3Stepper:(UIStepper *)sender;
-@property (strong, nonatomic) IBOutlet UIStepper *Afreq2stepper;
-@property (strong, nonatomic) IBOutlet UIStepper *Afreq3stepper;
 
 @end

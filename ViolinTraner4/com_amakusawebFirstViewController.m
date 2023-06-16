@@ -21,7 +21,6 @@ com_amakusaweb_fft *fft;
     float *fftresult;
 }
 
-
 float frecG,frecD,frecA,frecE;
 int FRACTONEA = 442;
 int Localwavetype;
@@ -43,8 +42,8 @@ bool octSwitch = NO;
 
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
-    [self resizeViewObjects];
-    [super viewDidAppear:animated];
+//    [self resizeViewObjects];
+//    [super viewDidAppear:animated];
 }
 
 //画面回転開始時
@@ -52,7 +51,7 @@ bool octSwitch = NO;
     [self resizeViewObjects];
 }
 
-//バックグラウンド以降時の処理
+//バックグラウンド移行時の処理
 -(void)bgStopWave:(NSNotification *)notification{
     //終了時の周波数（A)と波形の保存
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -89,7 +88,6 @@ bool octSwitch = NO;
     NSLog(@"stepper value = %f",self.AfrecStepper.value);
     self.AfrecValue.text = [NSString stringWithFormat:@"%i",(int)self.AfrecStepper.value];
 
-    
     //周波数セット
     frecA = self.AfrecStepper.value;
     frecD = (frecA * 2)/3;
@@ -116,7 +114,7 @@ bool octSwitch = NO;
         _ToneAE.enabled = NO;
         [self octBtnChangeColor];
     }else{
-    Localwavetype = vs.wavetype = self.selectWavetype.selectedSegmentIndex + 1;
+    Localwavetype = vs.wavetype = (int)self.selectWavetype.selectedSegmentIndex + 1;
     }
     vs.taperAMP = 0;
     
@@ -126,12 +124,12 @@ bool octSwitch = NO;
 
 -(void)resizeViewObjects{
     int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,LabelNoteTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areaheight;
-    
+
     int margin = 2;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
  //   CGRect bounsframesize = [[UIScreen mainScreen] bounds];
-    
+
     [UIView beginAnimations:@"aaaaaa" context:NULL];
     if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {
@@ -139,7 +137,7 @@ bool octSwitch = NO;
         areaheight = appframesize.size.height;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.height;
         bottomY = areaheight;
-        
+
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
             areaoriginY = statusbarheight;
             bottomY += statusbarheight;
@@ -147,48 +145,47 @@ bool octSwitch = NO;
         }else{
             NSLog(@"ios7以下");
         }
-        
+
         btnwidth = roundf((areawidth - margin*3)/2);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - 90 - margin*5)/2.5);
+        btnheight = roundf((areaheight - 90 - margin*5)/2.5);
         dupToneheight = btnheight / 2;
         dupToneWidth = roundf((areawidth - margin*4)/3);
-        
+
         firstrowTopY = areaoriginY + _LabelFrec.frame.size.height;
         secondrowTopY = firstrowTopY + btnheight + margin;
         thirdrowTopY = secondrowTopY + btnheight + margin;
         forthrowTopY = thirdrowTopY + dupToneheight;
-        
+
         _ToneGD.frame = CGRectMake(margin, thirdrowTopY, dupToneWidth, dupToneheight);
         _ToneDA.frame = CGRectMake(margin*2 + dupToneWidth,thirdrowTopY, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(margin*3 + dupToneWidth*2,thirdrowTopY, dupToneWidth, dupToneheight);
-        
+
         _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
-        
+
         AtoEsFontSize = roundf(btnheight*0.8);
         _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-        
+
         duptoneFontSize = roundf(dupToneheight*0.4);
         _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
         _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
         _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
-        
-        
+
         _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
         _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
         _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
         _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
-        
+
         _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
-        
+
         LabelNoteTopY = forthrowTopY + _LabelNote.frame.size.height;
-        
+
         _selectWavetype.frame = CGRectMake(margin, LabelNoteTopY, areawidth-margin*3, 26);
         sixthrowTopY = LabelNoteTopY + _selectWavetype.frame.size.height;
         sixthrowCenterY = sixthrowTopY + 36/2;
-        
+
         int sixthrowBottomY = sixthrowTopY + 36;
         Leftx = margin;
         _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
@@ -200,13 +197,13 @@ bool octSwitch = NO;
         _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 34, 21);
         Leftx += _stepperFreclabelHz.frame.size.width + margin;
         _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 5, 18, 19);
-        
+
     }else{
         areawidth = appframesize.size.height;
         areaheight = appframesize.size.width;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.width;
         bottomY = areaheight;
-        
+
         if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
             areaoriginY = statusbarheight;
             bottomY += areaoriginY;
@@ -214,47 +211,46 @@ bool octSwitch = NO;
         }else{
             NSLog(@"ios7以下");
         }
-        
+
         btnwidth = roundf((areawidth - margin*4)/3);
-        btnheight = roundf((areaheight - self.banner.frame.size.height - 70 - margin*6)/2);
+        btnheight = roundf((areaheight - 70 - margin*6)/2);
         dupToneheight = ((btnheight * 2 + margin)-margin*2)/3;
         dupToneWidth = btnwidth;
 
         firstrowTopY = areaoriginY + _LabelFrec.frame.size.height;
         secondrowTopY = firstrowTopY + btnheight + margin;
         forthrowTopY = secondrowTopY + btnheight + margin;
-        
+
         _ToneGD.frame = CGRectMake(btnwidth*2 + margin*3, firstrowTopY, dupToneWidth, dupToneheight);
         _ToneDA.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight + margin, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight*2 + margin*2, dupToneWidth, dupToneheight);
-        
+
         _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
-        
+
         AtoEsFontSize = roundf(btnheight*0.8);
         _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneD.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneG.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
         _ToneE.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
-        
+
         duptoneFontSize = roundf(dupToneheight*0.6);
         _ToneGD.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
         _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
         _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
-        
-        
+
+
         _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
         _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
         _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
         _ToneE.frame = CGRectMake(btnwidth+margin*2,secondrowTopY, btnwidth, btnheight);
-        
+
         _LabelNote.frame = CGRectMake(margin, forthrowTopY, appframesize.size.width, 15);
-        
+
         LabelNoteTopY = forthrowTopY;
-        
-        
+
         sixthrowTopY = LabelNoteTopY + _LabelNote.frame.size.height;
         sixthrowCenterY = sixthrowTopY + 36/2;
-        
+
         int sixthrowBottomY = sixthrowTopY + 36;
         Leftx = margin;
         _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
@@ -270,16 +266,6 @@ bool octSwitch = NO;
         _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
     }
 
-    if (_bannerIsVisible) {
-        [UIView beginAnimations:@"animateAdBannerchangeOrientation" context:NULL];
-        _banner.frame = CGRectMake(0, bottomY - _banner.frame.size.height, areawidth, 50);
-        _banner.alpha = 1.0f;
-        [UIView commitAnimations];
-    }else{
-        _banner.frame = CGRectMake(0, bottomY, areawidth, 50);
-        _banner.alpha = 0.0f;
-    }
-    
     NSLog(@"orientation = %ld",self.interfaceOrientation);
 //    NSLog(@"arearWidth  = %d",areawidth);
 //    NSLog(@"arearHeight = %d",areaheight);
@@ -296,7 +282,7 @@ bool octSwitch = NO;
 //    NSLog(@"appframe width    = %f",appframesize.size.width);
 //    NSLog(@"appframe height   = %f",appframesize.size.height);
     [UIView commitAnimations];
-    
+
 }
 
 
@@ -355,8 +341,8 @@ bool octSwitch = NO;
 -(void)ToneAwave{
     NSLog(@"A pressed");
     [self DownTaper];
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
     self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",frecA];
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
     vs.flgDownTaper = 0;
     vs.wavetype = Localwavetype;
     vs.flgUpTaper = 1;
@@ -473,11 +459,11 @@ bool octSwitch = NO;
     }
     else{
         [self ToneAwave];
-        fft.SampleRate = frecA;
-        CGRect framesize = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200);
-        com_amakusaweb_meterView * mv = [[com_amakusaweb_meterView alloc] initWithFrame:framesize result:fftresult];
-        
-        [self.view addSubview:mv];
+//        fft.SampleRate = frecA;
+//        CGRect framesize = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200);
+//        com_amakusaweb_meterView * mv = [[com_amakusaweb_meterView alloc] initWithFrame:framesize result:fftresult];
+//
+//        [self.view addSubview:mv];
         
         
        // [self performSegueWithIdentifier:@"segueFFT" sender:self];
@@ -636,47 +622,4 @@ bool octSwitch = NO;
     
 }
 
-//AdBannerアニメーション
--(void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    if (!_bannerIsVisible) {
-        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        banner.frame = CGRectMake(0, bottomY - banner.frame.size.height, areawidth, 50);
-        banner.alpha = 1.0f;
-        [UIView commitAnimations];
-        _bannerIsVisible = YES;
-    }
-    NSLog(@"広告在庫あり");
-}
-
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    if (_bannerIsVisible) {
-        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        banner.frame = CGRectMake(0, bottomY, areawidth, 50);
-        banner.alpha = 0.0f;
-        [UIView commitAnimations];
-        _bannerIsVisible = NO;
-    }
-    NSLog(@"広告在庫なし");
-}
-
-//バナータップ時に音を止める
-- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner
-               willLeaveApplication:(BOOL)willLeave
-{
-    BOOL shouldExecuteAction =YES; // アプリケーションはこの方法 を実装する
-    if (!willLeave && shouldExecuteAction)
-    {
-        // ここにコードを挿入して、広告と競合する可能性のあるサービスを一時停止する
-        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        [ud setInteger:self.AfrecStepper.value forKey:@"afrecsteppervalue"];
-        [ud setInteger:self.selectWavetype.selectedSegmentIndex forKey:@"selectwavetype"];
-        
-        [self StopWave];
-    }
-        return shouldExecuteAction;
-    }
-- (IBAction)xxxx:(UIStoryboardSegue *)segue{
-}
 @end
