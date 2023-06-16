@@ -207,6 +207,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				ja,
 				Base,
@@ -343,7 +344,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViolinTraner4/TuningTone-Prefix.pch";
 				INFOPLIST_FILE = "ViolinTraner4/TuningTone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = TuningTone;
 				PROVISIONING_PROFILE = "";
@@ -363,7 +364,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViolinTraner4/TuningTone-Prefix.pch";
 				INFOPLIST_FILE = "ViolinTraner4/TuningTone-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = TuningTone;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
