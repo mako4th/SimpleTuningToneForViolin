@@ -31,11 +31,13 @@ com_amakusawebPlaySineWaves *vsn;
     [audioSession setActive:YES error:nil];
     
     //出力種別を調べる
-    UInt32 routeSize = sizeof(CFStringRef);
-    CFStringRef route;
-    AudioSessionGetProperty(kAudioSessionProperty_AudioRoute, &routeSize, &route);
-    NSLog(@"route = %@",route);
-    
+    AVAudioSessionRouteDescription *routeDescription = [[AVAudioSession sharedInstance] currentRoute];
+    for(AVAudioSessionPortDescription *output in [routeDescription outputs]){
+        NSLog(@"output route = %@",[output portName]);
+    }
+    for(AVAudioSessionPortDescription *input in [routeDescription inputs]){
+        NSLog(@"input route = %@",[input portName]);
+    }
     
     AudioComponentDescription acd;
     acd.componentType = kAudioUnitType_Output;

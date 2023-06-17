@@ -25,6 +25,7 @@
 		3AEC11B117C33FBF00EFAE28 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AEC11AF17C33FBF00EFAE28 /* MainStoryboard.storyboard */; };
 		3AEC11B417C33FBF00EFAE28 /* com_amakusawebFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC11B317C33FBF00EFAE28 /* com_amakusawebFirstViewController.m */; };
 		3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFC77E517E8064900C15C46 /* Accelerate.framework */; };
+		8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		3AEC11B217C33FBF00EFAE28 /* com_amakusawebFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_amakusawebFirstViewController.h; sourceTree = "<group>"; };
 		3AEC11B317C33FBF00EFAE28 /* com_amakusawebFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebFirstViewController.m; sourceTree = "<group>"; };
 		3AFC77E517E8064900C15C46 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				3AEC11AF17C33FBF00EFAE28 /* MainStoryboard.storyboard */,
+				8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */,
 				3AEC11B217C33FBF00EFAE28 /* com_amakusawebFirstViewController.h */,
 				3AEC11B317C33FBF00EFAE28 /* com_amakusawebFirstViewController.m */,
 				3ACFFD0B17FBD52C0013D122 /* com.amakusawebhelpViewController.h */,
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */,
 				3A0F5C991839D95D0050CAB1 /* title.jpg in Resources */,
 				3AAACE0018484DE600EADD80 /* index.html in Resources */,
 				3AAACE0418484F1E00EADD80 /* 1.jpg in Resources */,
@@ -316,7 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				"ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME[sdk=*]" = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -335,7 +339,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

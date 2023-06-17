@@ -21,7 +21,7 @@ com_amakusaweb_fft *fft;
     float *fftresult;
 }
 
-float frecG,frecD,frecA,frecE;
+float freqG,freqD,freqA,freqE;
 int FRACTONEA = 442;
 int Localwavetype;
 const com_amakusawebPlaySineWaves *vs;
@@ -36,19 +36,19 @@ bool octSwitch = NO;
 }
 
 //全方向対応
-- (NSUInteger)supportedInterfaceOrientations{
-    return UIInterfaceOrientationMaskAll;
-}
+//- (NSUInteger)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationMaskAll;
+//}
 
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
-//    [self resizeViewObjects];
-//    [super viewDidAppear:animated];
+   // [self resizeViewObjects];
+    //[super viewDidAppear:animated];
 }
 
 //画面回転開始時
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    [self resizeViewObjects];
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+//    [self resizeViewObjects];
 }
 
 //バックグラウンド移行時の処理
@@ -89,12 +89,12 @@ bool octSwitch = NO;
     self.AfrecValue.text = [NSString stringWithFormat:@"%i",(int)self.AfrecStepper.value];
 
     //周波数セット
-    frecA = self.AfrecStepper.value;
-    frecD = (frecA * 2)/3;
-    frecG = (frecA * 4)/9;
-    frecE = (frecA * 3)/2;
+    freqA = self.AfrecStepper.value;
+    freqD = (freqA * 2)/3;
+    freqG = (freqA * 4)/9;
+    freqE = (freqA * 3)/2;
     
-    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",frecA];
+    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",freqA];
     
     //playSinWaveの初期設定：無音
     vs = [[com_amakusawebPlaySineWaves alloc] init];
@@ -117,9 +117,7 @@ bool octSwitch = NO;
     Localwavetype = vs.wavetype = (int)self.selectWavetype.selectedSegmentIndex + 1;
     }
     vs.taperAMP = 0;
-    
     [vs playSineWave];
-    
 }
 
 -(void)resizeViewObjects{
@@ -239,7 +237,6 @@ bool octSwitch = NO;
         _ToneDA.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
         _ToneAE.titleLabel.font = [UIFont systemFontOfSize:duptoneFontSize];
 
-
         _ToneA.frame = CGRectMake(margin, firstrowTopY, btnwidth, btnheight);
         _ToneD.frame = CGRectMake(btnwidth+margin*2,firstrowTopY, btnwidth, btnheight);
         _ToneG.frame = CGRectMake(margin,secondrowTopY,btnwidth,btnheight);
@@ -283,7 +280,6 @@ bool octSwitch = NO;
 //    NSLog(@"appframe width    = %f",appframesize.size.width);
 //    NSLog(@"appframe height   = %f",appframesize.size.height);
     [UIView commitAnimations];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -293,133 +289,61 @@ bool octSwitch = NO;
 }
 
 - (IBAction)AfrecStepper:(UIStepper *)sender {
-    frecA = self.AfrecStepper.value;
-    frecD = (frecA * 2)/3;
-    frecG = (frecA * 4)/9;
-    frecE = (frecA * 3)/2;
-    NSLog(@"%f",frecA);
-    self.AfrecValue.text = [NSString stringWithFormat:@"%.0f",frecA];
+    freqA = self.AfrecStepper.value;
+    freqD = (freqA * 2)/3;
+    freqG = (freqA * 4)/9;
+    freqE = (freqA * 3)/2;
+    NSLog(@"%f",freqA);
+    self.AfrecValue.text = [NSString stringWithFormat:@"%.0f",freqA];
     [self ToneResume];
 }
 
--(void)ToneChangerFreq1:(Float64)Freq1 Freq2:(Float64)Freq2{
+- (void)changeFreq1:(Float64)freq1 Freq2:(Float64)freq2 NowPlaying:(int)nowPlaying{
     [self DownTaper];
+    NSLog(@"pressed %@", [[NSNumber numberWithFloat:freq1] stringValue]);
+    vs.UPTaperMaxCount = TaperCountDefoultNum;
+    self.LabelFrec.text = [NSString stringWithFormat:@"G = %.4f Hz",freq1];
+    vs.flgDownTaper = 0;
+    vs.flgUpTaper = 1;
+    vs.UPTaperCount = 0;
+    vs.frequency = freq1;
+    vs.frequency2 = freq2;
+    if (octSwitch == YES) {
+        vs.frequency2 = freq1 * 2;
+    }
+    vs.nowPlaying = nowPlaying;
+    vs.isplay = 1;
 }
 
 - (void)ToneGwave{
-    
-    [self DownTaper];
-    NSLog(@"G pressed");
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"G = %.4f Hz",frecG];
-    vs.flgDownTaper = 0;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecG;
-    vs.frequency2 = frecG;
-    if (octSwitch == YES) {
-        vs.frequency2 = frecG * 2;
-    }
-    vs.nowPlaying = 1;
-    vs.isplay = 1;
+    [self changeFreq1:freqG Freq2:freqG NowPlaying:1];
 }
 
 -(void)ToneDwave{
-    [self DownTaper];
-    NSLog(@"D pressed");
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"D = %.4f Hz",frecD];
-    vs.flgDownTaper = 0;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecD;
-    vs.frequency2 = frecD;
-    if (octSwitch == YES) {
-        vs.frequency2 = frecD * 2;
-    }
-    vs.nowPlaying = 2;
-    vs.isplay = 1;
+    [self changeFreq1:freqD Freq2:freqD NowPlaying:2];
 }
 
 -(void)ToneAwave{
-    NSLog(@"A pressed");
-    [self DownTaper];
-    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",frecA];
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    vs.flgDownTaper = 0;
-    vs.wavetype = Localwavetype;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecA;
-    vs.frequency2 = frecA;
-    if (octSwitch == YES) {
-        vs.frequency2 = frecA * 2;
-    }
-    vs.nowPlaying = 3;
-    vs.isplay = 1;
+    [self changeFreq1:freqA Freq2:freqA NowPlaying:3];
 }
 
 -(void)ToneEwave{
-    NSLog(@"E pressed");
-    [self DownTaper];
-    self.LabelFrec.text = [NSString stringWithFormat:@"E = %.4f Hz",frecE];
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    vs.flgDownTaper = 0;
-    vs.wavetype = Localwavetype;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecE;
-    vs.frequency2 = frecE;
-    if (octSwitch == YES) {
-        vs.frequency2 = frecE * 2;
-    }
-    vs.nowPlaying = 4;
-    vs.isplay = 1;
+    [self changeFreq1:freqE Freq2:freqE NowPlaying:4];
 }
 
 -(void)ToneGDwave{
-    NSLog(@"GD pressed");
-    [self DownTaper];
     self.LabelFrec.text = @"GD";
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    vs.flgDownTaper = 0;
-    vs.wavetype = Localwavetype;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecG;
-    vs.frequency2 = frecD;
-    vs.nowPlaying = 5;
-    vs.isplay = 1;
+    [self changeFreq1:freqG Freq2:freqD NowPlaying:5];
 }
 
 -(void)ToneDAwave{
-    NSLog(@"DA pressed");
-    [self DownTaper];
     self.LabelFrec.text = @"DA";
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    vs.flgDownTaper = 0;
-    vs.wavetype = Localwavetype;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecD;
-    vs.frequency2 = frecA;
-    vs.nowPlaying = 6;
-    vs.isplay = 1;
+    [self changeFreq1:freqD Freq2:freqA NowPlaying:6];
 }
 
 -(void)ToneAEwave{
-    NSLog(@"AE pressed");
-    [self DownTaper];
     self.LabelFrec.text = @"AE";
-    vs.UPTaperMaxCount = TaperCountDefoultNum;
-    vs.flgDownTaper = 0;
-    vs.wavetype = Localwavetype;
-    vs.flgUpTaper = 1;
-    vs.UPTaperCount = 0;
-    vs.frequency = frecA;
-    vs.frequency2 = frecE;
-    vs.nowPlaying = 7;
-    vs.isplay = 1;
+    [self changeFreq1:freqA Freq2:freqE NowPlaying:7];
 }
 
 -(void)DownTaper{
@@ -543,14 +467,13 @@ bool octSwitch = NO;
         
         [self ToneResume];
         }
-        
     }else{//オクターブ以外
         octSwitch = NO;
         _ToneGD.enabled = YES;
         _ToneDA.enabled = YES;
         _ToneAE.enabled = YES;
         [self octBtnChangeColor];
-        Localwavetype = [sender selectedSegmentIndex] + 1;
+        Localwavetype = (int)[sender selectedSegmentIndex] + 1;
         if (vs.isplay == 0) {
             vs.wavetype = Localwavetype;
         }else
@@ -622,7 +545,5 @@ bool octSwitch = NO;
                 break;
         }
     }
-    
 }
-
 @end

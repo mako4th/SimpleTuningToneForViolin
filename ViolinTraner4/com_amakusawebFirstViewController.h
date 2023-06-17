@@ -40,7 +40,7 @@
 
 - (IBAction)AfrecStepper:(UIStepper *)sender;
 
-- (void)ToneChanger:(
+-(void)changeFreq1:(Float64)freq1 Freq2:(Float64)freq2 NowPlaying:(int)nowPlaying;
 - (void)ToneGwave;
 - (void)ToneDwave;
 - (void)ToneAwave;
