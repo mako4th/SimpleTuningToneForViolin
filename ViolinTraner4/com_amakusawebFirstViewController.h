@@ -40,6 +40,7 @@
 
 - (IBAction)AfrecStepper:(UIStepper *)sender;
 
+- (void)ToneChanger:(
 - (void)ToneGwave;
 - (void)ToneDwave;
 - (void)ToneAwave;

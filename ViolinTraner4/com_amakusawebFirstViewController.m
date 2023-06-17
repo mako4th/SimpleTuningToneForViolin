@@ -127,11 +127,12 @@ bool octSwitch = NO;
 
     int margin = 2;
     int areaoriginY = 0;
-    CGRect appframesize = [[UIScreen mainScreen] applicationFrame];
+    CGRect appframesize = [[UIScreen mainScreen] bounds];
  //   CGRect bounsframesize = [[UIScreen mainScreen] bounds];
 
     [UIView beginAnimations:@"aaaaaa" context:NULL];
-    if (self.interfaceOrientation == UIInterfaceOrientationPortrait || self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
+    if ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait
+        || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown)
     {
         areawidth = appframesize.size.width;
         areaheight = appframesize.size.height;
@@ -266,7 +267,7 @@ bool octSwitch = NO;
         _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 19/2, 18, 19);
     }
 
-    NSLog(@"orientation = %ld",self.interfaceOrientation);
+    NSLog(@"orientation = %ld",[[UIApplication sharedApplication] statusBarOrientation]);
 //    NSLog(@"arearWidth  = %d",areawidth);
 //    NSLog(@"arearHeight = %d",areaheight);
 //    NSLog(@"bottomY     = %d",bottomY);
@@ -285,8 +286,6 @@ bool octSwitch = NO;
 
 }
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -301,6 +300,10 @@ bool octSwitch = NO;
     NSLog(@"%f",frecA);
     self.AfrecValue.text = [NSString stringWithFormat:@"%.0f",frecA];
     [self ToneResume];
+}
+
+-(void)ToneChangerFreq1:(Float64)Freq1 Freq2:(Float64)Freq2{
+    [self DownTaper];
 }
 
 - (void)ToneGwave{
