@@ -123,7 +123,7 @@
                                 <segments>
                                     <segment title="sin"/>
                                     <segment title="triangle"/>
-                                    <segment title="sawtooth"/>
+                                    <segment title="saw"/>
                                     <segment title="octave"/>
                                 </segments>
                                 <color key="tintColor" red="0.4941176471" green="0.74901960779999999" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

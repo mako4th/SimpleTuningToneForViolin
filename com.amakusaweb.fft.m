@@ -68,11 +68,15 @@ static OSStatus renderer(void *inRef,
     com_amakusaweb_fft *bridgedInRef = (__bridge com_amakusaweb_fft *)inRef;
 
 #pragma mark -inputRendering
+    Float32 *inputL,*inputR;
     //Mic入力をioDataにレンダリングする
     AudioUnitRender(bridgedInRef->remoteIOUnit, ioActionFlags, inTimeStamp, 1, inNumberFrames, ioData);
-    Float32 *inputL = (Float32 *)ioData->mBuffers[0].mData;
-    Float32 *inputR = (Float32 *)ioData->mBuffers[1].mData;
-    
+    inputL = (Float32 *)ioData->mBuffers[0].mData;
+    if(ioData->mNumberBuffers > 1){
+        inputR = (Float32 *)ioData->mBuffers[1].mData;
+    }else{
+        inputR = (Float32 *)ioData->mBuffers[0].mData;
+    }
 #pragma mark -buffaling
     //レンダリング結果をバッファに保存
     memmove(bridgedInRef->fftbuffa, bridgedInRef->fftbuffa + 1024, bridgedInRef->fftBuffaFrames * sizeof(Float32) - bridgedInRef->ChankSize);

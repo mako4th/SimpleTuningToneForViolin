@@ -128,7 +128,7 @@ bool octSwitch = NO;
 -(void)resizeViewObjects{
     int statusbarheight,firstrowTopY,secondrowTopY,thirdrowTopY,forthrowTopY,LabelNoteTopY,sixthrowTopY,AtoEsFontSize,btnwidth,btnheight,dupToneWidth,dupToneheight,duptoneFontSize,Leftx,sixthrowCenterY,areaheight;
 
-    int margin = 2;
+    int margin = 5;
     int areaoriginY = 0;
     CGRect appframesize = [[UIScreen mainScreen] bounds];
  //   CGRect bounsframesize = [[UIScreen mainScreen] bounds];
@@ -138,7 +138,7 @@ bool octSwitch = NO;
         || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown)
     {
         areawidth = appframesize.size.width;
-        areaheight = appframesize.size.height - 40;
+        areaheight = appframesize.size.height - 60;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.height;
         bottomY = areaheight;
 
@@ -203,8 +203,8 @@ bool octSwitch = NO;
         _helpButton.frame = CGRectMake(Leftx, sixthrowCenterY - 5, 18, 19);
 
     }else{
-        areawidth = appframesize.size.height;
-        areaheight = appframesize.size.width;
+        areawidth = appframesize.size.width;
+        areaheight = appframesize.size.height;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.width;
         bottomY = areaheight;
 
@@ -229,7 +229,7 @@ bool octSwitch = NO;
         _ToneDA.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight + margin, dupToneWidth, dupToneheight);
         _ToneAE.frame = CGRectMake(btnwidth*2 + margin*3,firstrowTopY + dupToneheight*2 + margin*2, dupToneWidth, dupToneheight);
 
-        _LabelFrec.frame = CGRectMake(margin, areaoriginY, 128, 20);
+        _LabelFrec.frame = CGRectMake(margin + 100, areaoriginY, 128, 20);
 
         AtoEsFontSize = roundf(btnheight*0.8);
         _ToneA.titleLabel.font = [UIFont systemFontOfSize:AtoEsFontSize];
@@ -255,12 +255,12 @@ bool octSwitch = NO;
         sixthrowCenterY = sixthrowTopY + 36/2;
 
         int sixthrowBottomY = sixthrowTopY + 36;
-        Leftx = margin;
+        Leftx = margin + 10;
         _AfrecStepper.frame = CGRectMake(Leftx, sixthrowCenterY - 27/2, 94, 27);
         Leftx += _AfrecStepper.frame.size.width + margin * 3;
         _stepperFrecLabel.frame = CGRectMake(Leftx,sixthrowBottomY - 21 ,27, 21);
         Leftx += _stepperFrecLabel.frame.size.width + margin;
-        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 65, 36);
+        _AfrecValue.frame = CGRectMake(Leftx, sixthrowCenterY - 36/2, 100, 36);
         Leftx += _AfrecValue.frame.size.width;
         _stepperFreclabelHz.frame = CGRectMake(Leftx, sixthrowBottomY - 21, 30, 21);
         Leftx += _stepperFreclabelHz.frame.size.width;
