@@ -42,13 +42,18 @@ bool octSwitch = NO;
 
 -(void)viewDidAppear:(BOOL)animated{
     //画面オブジェクトのサイズ設定
-   // [self resizeViewObjects];
-    //[super viewDidAppear:animated];
+    [self resizeViewObjects];
+    [super viewDidAppear:animated];
 }
 
+-(void)loadView:(BOOL)animated{
+    
+    [self resizeViewObjects];
+    [super viewDidAppear:animated];
+}
 //画面回転開始時
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-//    [self resizeViewObjects];
+    [self resizeViewObjects];
 }
 
 //バックグラウンド移行時の処理
@@ -94,7 +99,7 @@ bool octSwitch = NO;
     freqG = (freqA * 4)/9;
     freqE = (freqA * 3)/2;
     
-    self.LabelFrec.text = [NSString stringWithFormat:@"A = %.4f Hz",freqA];
+    self.LabelFrec.text = [NSString stringWithFormat:@"%.4f Hz",freqA];
     
     //playSinWaveの初期設定：無音
     vs = [[com_amakusawebPlaySineWaves alloc] init];
@@ -133,7 +138,7 @@ bool octSwitch = NO;
         || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown)
     {
         areawidth = appframesize.size.width;
-        areaheight = appframesize.size.height;
+        areaheight = appframesize.size.height - 40;
         statusbarheight = (int)UIApplication.sharedApplication.statusBarFrame.size.height;
         bottomY = areaheight;
 
@@ -302,7 +307,7 @@ bool octSwitch = NO;
     [self DownTaper];
     NSLog(@"pressed %@", [[NSNumber numberWithFloat:freq1] stringValue]);
     vs.UPTaperMaxCount = TaperCountDefoultNum;
-    self.LabelFrec.text = [NSString stringWithFormat:@"G = %.4f Hz",freq1];
+    self.LabelFrec.text = [NSString stringWithFormat:@"%.4f Hz",freq1];
     vs.flgDownTaper = 0;
     vs.flgUpTaper = 1;
     vs.UPTaperCount = 0;
