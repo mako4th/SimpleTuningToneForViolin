@@ -26,6 +26,7 @@
 		3AEC11B417C33FBF00EFAE28 /* com_amakusawebFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEC11B317C33FBF00EFAE28 /* com_amakusawebFirstViewController.m */; };
 		3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFC77E517E8064900C15C46 /* Accelerate.framework */; };
 		8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */; };
+		8D846AEF2A4084B800DC00D8 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D846AEE2A4084B800DC00D8 /* icon1024.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		3AEC11B317C33FBF00EFAE28 /* com_amakusawebFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebFirstViewController.m; sourceTree = "<group>"; };
 		3AFC77E517E8064900C15C46 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8D846AEE2A4084B800DC00D8 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		3ACFFD0E17FBD8660013D122 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8D846AEE2A4084B800DC00D8 /* icon1024.png */,
 				3AAACE0318484F1E00EADD80 /* 1.jpg */,
 				3A0F5C931839D95D0050CAB1 /* title.jpg */,
 			);
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */,
+				8D846AEF2A4084B800DC00D8 /* icon1024.png in Resources */,
 				3A0F5C991839D95D0050CAB1 /* title.jpg in Resources */,
 				3AAACE0018484DE600EADD80 /* index.html in Resources */,
 				3AAACE0418484F1E00EADD80 /* 1.jpg in Resources */,
