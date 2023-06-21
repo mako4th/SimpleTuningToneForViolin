@@ -27,6 +27,7 @@
 		3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFC77E517E8064900C15C46 /* Accelerate.framework */; };
 		8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */; };
 		8D846AEF2A4084B800DC00D8 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D846AEE2A4084B800DC00D8 /* icon1024.png */; };
+		8DD5ACFB2A42F97000C33ABE /* com_amakusaweb_LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5ACFA2A42F97000C33ABE /* com_amakusaweb_LaunchScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		3AFC77E517E8064900C15C46 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D846AEE2A4084B800DC00D8 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
+		8DD5ACFA2A42F97000C33ABE /* com_amakusaweb_LaunchScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_amakusaweb_LaunchScreenViewController.m; sourceTree = "<group>"; };
+		8DD5ACFC2A42F9CE00C33ABE /* com_amaksuaweb_LaunchScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_amaksuaweb_LaunchScreenViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 				3AEC11A617C33FBE00EFAE28 /* com_amakusawebAppDelegate.h */,
 				3AEC11A717C33FBF00EFAE28 /* com_amakusawebAppDelegate.m */,
 				3ACF912E17F29AF500AD9200 /* Images.xcassets */,
+				8DD5ACFC2A42F9CE00C33ABE /* com_amaksuaweb_LaunchScreenViewController.h */,
+				8DD5ACFA2A42F97000C33ABE /* com_amakusaweb_LaunchScreenViewController.m */,
 			);
 			path = ViolinTraner4;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				3AEC11B417C33FBF00EFAE28 /* com_amakusawebFirstViewController.m in Sources */,
 				3ACFFD0D17FBD52C0013D122 /* com.amakusawebhelpViewController.m in Sources */,
 				3A29180119B44B1000574119 /* com.amakusaweb.fft.m in Sources */,
+				8DD5ACFB2A42F97000C33ABE /* com_amakusaweb_LaunchScreenViewController.m in Sources */,
 				3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
