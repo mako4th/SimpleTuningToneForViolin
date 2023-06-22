@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A29180119B44B1000574119 /* com.amakusaweb.fft.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29180019B44B1000574119 /* com.amakusaweb.fft.m */; };
 		3A29180319B44B2B00574119 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29180219B44B2B00574119 /* AVFoundation.framework */; };
-		3A31DB2319B6F153009F2AC6 /* com.amakusaweb.meterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */; };
 		3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */; };
-		3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A414F0F17C47D38007E471A /* AudioToolbox.framework */; };
 		3AAACE0018484DE600EADD80 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AAACDFF18484DE600EADD80 /* index.html */; };
 		3AAACE0418484F1E00EADD80 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AAACE0318484F1E00EADD80 /* 1.jpg */; };
 		3ACF912F17F29AF500AD9200 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ACF912E17F29AF500AD9200 /* Images.xcassets */; };
@@ -27,17 +24,13 @@
 		8D038FFB2A431F3E00F0BA2A /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D038FFA2A431F3E00F0BA2A /* icon1024.png */; };
 		8D038FFF2A43269000F0BA2A /* title.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8D038FFE2A43269000F0BA2A /* title.jpg */; };
 		8D2C5F7E2A3DFB1300782432 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */; };
+		CD6C2A922A447B8E0098A223 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6C2A912A447B8D0098A223 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A2917FF19B44B1000574119 /* com.amakusaweb.fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com.amakusaweb.fft.h; sourceTree = "<group>"; };
-		3A29180019B44B1000574119 /* com.amakusaweb.fft.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com.amakusaweb.fft.m; sourceTree = "<group>"; };
 		3A29180219B44B2B00574119 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		3A31DB2119B6F153009F2AC6 /* com.amakusaweb.meterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com.amakusaweb.meterView.h; sourceTree = "<group>"; };
-		3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com.amakusaweb.meterView.m; sourceTree = "<group>"; };
 		3A414F0C17C47A13007E471A /* com_amakusawebPlaySineWaves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = com_amakusawebPlaySineWaves.h; sourceTree = "<group>"; };
 		3A414F0D17C47A13007E471A /* com_amakusawebPlaySineWaves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = com_amakusawebPlaySineWaves.m; sourceTree = "<group>"; };
-		3A414F0F17C47D38007E471A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3AAACDFF18484DE600EADD80 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3AAACE0318484F1E00EADD80 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		3ACF912E17F29AF500AD9200 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -59,6 +52,7 @@
 		8D038FFA2A431F3E00F0BA2A /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		8D038FFE2A43269000F0BA2A /* title.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = title.jpg; sourceTree = "<group>"; };
 		8D2C5F7D2A3DFB1300782432 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CD6C2A912A447B8D0098A223 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +62,10 @@
 			files = (
 				3A29180319B44B2B00574119 /* AVFoundation.framework in Frameworks */,
 				3AFC77E617E8064900C15C46 /* Accelerate.framework in Frameworks */,
-				3A414F1017C47D38007E471A /* AudioToolbox.framework in Frameworks */,
 				3AEC119817C33FBE00EFAE28 /* UIKit.framework in Frameworks */,
 				3AEC119A17C33FBE00EFAE28 /* Foundation.framework in Frameworks */,
 				3AEC119C17C33FBE00EFAE28 /* CoreGraphics.framework in Frameworks */,
+				CD6C2A922A447B8E0098A223 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,10 +96,6 @@
 		3AEC118B17C33FBE00EFAE28 = {
 			isa = PBXGroup;
 			children = (
-				3A31DB2119B6F153009F2AC6 /* com.amakusaweb.meterView.h */,
-				3A31DB2219B6F153009F2AC6 /* com.amakusaweb.meterView.m */,
-				3A2917FF19B44B1000574119 /* com.amakusaweb.fft.h */,
-				3A29180019B44B1000574119 /* com.amakusaweb.fft.m */,
 				3AEC119D17C33FBE00EFAE28 /* ViolinTraner4 */,
 				3AEC119617C33FBE00EFAE28 /* Frameworks */,
 				3AEC119517C33FBE00EFAE28 /* Products */,
@@ -124,9 +114,9 @@
 		3AEC119617C33FBE00EFAE28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD6C2A912A447B8D0098A223 /* AudioToolbox.framework */,
 				3A29180219B44B2B00574119 /* AVFoundation.framework */,
 				3AFC77E517E8064900C15C46 /* Accelerate.framework */,
-				3A414F0F17C47D38007E471A /* AudioToolbox.framework */,
 				3AEC119717C33FBE00EFAE28 /* UIKit.framework */,
 				3AEC119917C33FBE00EFAE28 /* Foundation.framework */,
 				3AEC119B17C33FBE00EFAE28 /* CoreGraphics.framework */,
@@ -240,11 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AEC11A417C33FBE00EFAE28 /* main.m in Sources */,
-				3A31DB2319B6F153009F2AC6 /* com.amakusaweb.meterView.m in Sources */,
 				3AEC11A817C33FBF00EFAE28 /* com_amakusawebAppDelegate.m in Sources */,
 				3AEC11B417C33FBF00EFAE28 /* com_amakusawebFirstViewController.m in Sources */,
 				3ACFFD0D17FBD52C0013D122 /* com.amakusawebhelpViewController.m in Sources */,
-				3A29180119B44B1000574119 /* com.amakusaweb.fft.m in Sources */,
 				3A414F0E17C47A13007E471A /* com_amakusawebPlaySineWaves.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +352,7 @@
 				"ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME[sdk=*]" = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4KG7L4RN6D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViolinTraner4/TuningTone-Prefix.pch";
 				INFOPLIST_FILE = "ViolinTraner4/TuningTone-Info.plist";
@@ -385,6 +374,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4KG7L4RN6D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViolinTraner4/TuningTone-Prefix.pch";
 				INFOPLIST_FILE = "ViolinTraner4/TuningTone-Info.plist";

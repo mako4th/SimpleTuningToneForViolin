@@ -8,7 +8,7 @@
 
 #import "com_amakusawebFirstViewController.h"
 #import "com_amakusawebPlaySineWaves.h"
-#import "com.amakusaweb.fft.h"
+//#import "com.amakusaweb.fft.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 @interface com_amakusawebFirstViewController ()
@@ -16,9 +16,9 @@
 @end
 
 @implementation com_amakusawebFirstViewController{
-com_amakusaweb_fft *fft;
+//com_amakusaweb_fft *fft;
 //    float fftresult[5];
-    float *fftresult;
+//    float *fftresult;
 }
 
 float freqG,freqD,freqA,freqE;
@@ -71,9 +71,9 @@ bool octSwitch = NO;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    fftresult = calloc(5, sizeof(float));
-    
-    fft = [[com_amakusaweb_fft alloc] initWithBuffaSizeLog2:16 returnArray:fftresult];//2^14=16384  2^15=32768 2^16=65536 2^17=131072
+//    fftresult = calloc(5, sizeof(float));
+//    
+//    fft = [[com_amakusaweb_fft alloc] initWithBuffaSizeLog2:16 returnArray:fftresult];//2^14=16384  2^15=32768 2^16=65536 2^17=131072
     //アプリ終了時の処理
     if (&UIApplicationWillTerminateNotification) {
         [[NSNotificationCenter defaultCenter]

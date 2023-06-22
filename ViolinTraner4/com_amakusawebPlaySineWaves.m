@@ -7,7 +7,6 @@
 //
 
 #import "com_amakusawebPlaySineWaves.h"
-
 #import <AVFoundation/AVFoundation.h>
 
 @implementation com_amakusawebPlaySineWaves
@@ -27,7 +26,8 @@ com_amakusawebPlaySineWaves *vsn;
 //    
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     
-    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+//    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
     [audioSession setActive:YES error:nil];
     
     //出力種別を調べる
@@ -79,15 +79,16 @@ com_amakusawebPlaySineWaves *vsn;
                          &asbd,
                          sizeof(asbd));
     //マイク入力をオンにする
-    UInt32 flag = 1;
-    AudioUnitSetProperty(au,
-                         kAudioOutputUnitProperty_EnableIO,
-                         kAudioUnitScope_Input,
-                         1,
-                         &flag,
-                         sizeof(UInt32));
+//    UInt32 flag = 1;
+//    AudioUnitSetProperty(au,
+//                         kAudioOutputUnitProperty_EnableIO,
+//                         kAudioUnitScope_Input,
+//                         1,
+//                         &flag,
+//                         sizeof(UInt32));
     // 再生開始
-    AudioUnitInitialize(au);    AudioOutputUnitStart(au);
+    AudioUnitInitialize(au);
+    AudioOutputUnitStart(au);
     
 }
 
@@ -150,24 +151,17 @@ static OSStatus renderer(void *inRef,
             default:
                 break;
         }
-        
         AudioUnitSampleType sample = wave * (1 << kAudioUnitSampleFractionBits);
-        
         //バッファへ書き込み
         *outL++ = sample;
         *outR++ = sample;
-        
-        
         //次のサンプリング周期を計算
         vsn.phase++;
-        
     }
-    
     return noErr;
 }
 
 - (float) getAMP{
-
     //鳴り始めのテーパ
     if (vsn.flgUpTaper == 1) {
         vsn.taperAMP = vsn.UPTaperCount/(float)vsn.UPTaperMaxCount;
@@ -178,7 +172,6 @@ static OSStatus renderer(void *inRef,
             vsn.taperAMP = 1;
         }
     }
-    
     //鳴り終わりのテーパ
     if (vsn.flgDownTaper == 1) {
         vsn.taperAMP -= 1.0/DownTaperDefoultNum;
@@ -200,7 +193,6 @@ static OSStatus renderer(void *inRef,
     // AudioUnitの解放
     AudioUnitUninitialize(au);
     AudioComponentInstanceDispose(au);
-    
 }
 
 - (void)testSineWave{

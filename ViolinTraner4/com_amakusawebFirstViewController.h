@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <iAd/iAd.h>
-#import "com.amakusaweb.meterView.h"
+//#import "com.amakusaweb.meterView.h"
 
 @interface com_amakusawebFirstViewController : UIViewController
 
